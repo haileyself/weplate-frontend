@@ -1,3 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+img {
+  color: rgba(255, 255, 255, 0);
+  text-indent: -9999px;
+}
 html,
 body,
 div,
@@ -78,12 +85,17 @@ summary,
 time,
 mark,
 audio,
-video {
+video,
+input {
+  font-family: 'SpoqaHanSans', 'Noto Sans SC', 'APPLE SD Gothic NEO',
+    'sans-serif';
+  outline: none;
+  text-decoration: none;
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  /* font: inherit; */
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -102,9 +114,11 @@ section {
 }
 body {
   line-height: 1;
+  width: 100vw;
 }
 ol,
-ul {
+ul,
+li {
   list-style: none;
 }
 blockquote,
