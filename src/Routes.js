@@ -4,6 +4,7 @@ import App from './pages/App';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 
+
 class Routes extends React.Component {
   render() {
     return (
@@ -12,6 +13,7 @@ class Routes extends React.Component {
           <Route exact path="/" component={App} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+
         </Switch>
       </Router>
     );
