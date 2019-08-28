@@ -17,7 +17,7 @@ function Login() {
               <div className="login_subtitle">Please enter your Email</div>
             </div>
             <div className="login_form">
-              <input className="login_input" type="text" placeholder="Your Email"/>
+              <input className="login_input" type="email" placeholder="Your Email"/>
               <input className="login_input" type="password" placeholder="Your Password"/>
               {/* <button className="login_btn">Login</button> */}
               <input type="button" className="login_btn" value="Login" />
