@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from './pages/App';
+// import Login from './pages/login';
+// import Signup from './pages/signup';
 
 class Routes extends React.Component {
   render() {
@@ -8,6 +10,8 @@ class Routes extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={App} />
+          {/* <Route exact path="/login" component={Login} /> */}
+          {/* <Route exact path="/signup" component={Signup} /> */}
         </Switch>
       </Router>
     );
