@@ -23,7 +23,7 @@
         display: flex;
         flex-direction: column;
       }   
-      img {
+      .signup-page img {
         display:flex;
         justify-content: space-between;
         width:100px;
@@ -59,14 +59,14 @@
         font-weight: 400;
         height: 200px;
       }
-      input, textarea {
+      .signup-page input, .signup-page textarea {
         width: 100%;
         font-size: 13px;
         margin-bottom: 5px;
         border-radius: 5px;
         padding: 7px 12px;
       }
-      input {
+      .signup-page input {
         margin: 0;
         padding: 16px;
         width: 100%;
@@ -78,7 +78,7 @@
         line-height: 16px;
         margin-bottom: 16px;
       }
-      input:hover {
+      .signup-page input:hover {
         border-color: #4CAF50;
       }
 
@@ -100,7 +100,7 @@
         box-shadow: none;
        }
 
-      button {
+      .signup-page button {
         color: white;
         font-size: 15px;
         background-color: #ff7100;
@@ -108,11 +108,11 @@
         border-radius: 5px;
       }
       
-      button:focus {
+      .signup-page button:focus {
         outline: none;
       }
 
-      input:hover {
+      .signup-page input:hover {
         border: solid 1px #ff7100;
       }
 
