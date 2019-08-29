@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import Main from './main/Main';
 
 
-function App() {
-  return (
-    <>
-    
-    </>
-  );
+class App extends PureComponent {
+  render() {
+    return (
+      <>
+        <Main />
+      </>
+    );
+  }
 }
 
 export default App;
