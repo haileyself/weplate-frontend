@@ -1,3 +1,4 @@
+@import '../../style/mediascreen.scss';
 .main-page {
   img {
     color: rgba(255, 255, 255, 0);
@@ -48,7 +49,7 @@
       }
     }
   }
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: $media_main_min_width1024) {
     .main {
       .main_article {
         .main_article_section {
@@ -62,7 +63,7 @@
       }
     }
   }
-  @media only screen and (max-width: 769px) {
+  @media only screen and (max-width: $media_main_max_width769) {
     .main {
       padding: 170px 100px;
       .main_article {
@@ -110,7 +111,7 @@
     }
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: $media_main_max_width500) {
     .main {
       padding: 170px 100px;
       .main_article {
