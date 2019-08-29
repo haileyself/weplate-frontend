@@ -6,7 +6,6 @@
      background-color: #fff;
      display: block;
 
-
         .login_container  {
             display: flex;
             align-items: center;
@@ -71,6 +70,7 @@
             color: #2e2545;
             padding-top: 5px;
         }
+
         .login_form {
             font-weight: 400;
             height: 200px;
@@ -132,6 +132,5 @@
         .login_btn:hover {
             opacity: 0.7;
             transition: .7s
-        }
-
+        } 
 }

@@ -21,7 +21,7 @@ class Login extends React.Component {
       if(this.state.password.length === 0) {
         alert('Password를 입력해주세요')
       } 
-      this.props.history.push('/main')
+      this.props.history.push('/')
     };
   
     setEmail = (e) => {
@@ -39,7 +39,7 @@ class Login extends React.Component {
         <article className="login_content">
           <div className="login_wrapper">
             <div className="login_header">
-              <Link to="/main"><img className="login_logo" src={Logo} alt="logo_img"></img></Link>
+              <Link to="/"><img className="login_logo" src={Logo} alt="logo_img"></img></Link>
             </div>
             <div className="login_info">
               <div className="login_title">Log in.</div>
