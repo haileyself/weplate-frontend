@@ -1,15 +1,14 @@
 import React, { PureComponent } from 'react';
-import Main from './main/Main';
+import Main from '../Main/Main';
 
 
-class App extends PureComponent {
+class Home extends PureComponent {
   render() {
     return (
       <>
-        <Main />
       </>
     );
   }
 }
 
-export default App;
+export default Home;

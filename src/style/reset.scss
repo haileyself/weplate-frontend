@@ -80,8 +80,6 @@ mark,
 audio,
 video,
 input {
-  font-family: 'SpoqaHanSans', 'Noto Sans SC', 'APPLE SD Gothic NEO',
-    'sans-serif';
   outline: none;
   text-decoration: none;
   margin: 0;
@@ -126,8 +124,4 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-* {
-  box-sizing: border-box;
 }
