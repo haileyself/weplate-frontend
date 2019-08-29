@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import './header.scss';
 
-class Header extends React.PureComponent {
+class Header extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
