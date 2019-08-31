@@ -1,15 +1,5 @@
-* {
-  box-sizing: border-box;
-}
 body {
   margin: 0;
-  font-family: 'SpoqaHanSans', 'Noto Sans SC', 'APPLE SD Gothic NEO',
-    'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: 'SpoqaHanSans', 'Noto Sans SC', 'APPLE SD Gothic NEO',
-    'sans-serif';
 }

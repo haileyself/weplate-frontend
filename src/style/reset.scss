@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html,
 body,
 div,
@@ -79,7 +82,8 @@ time,
 mark,
 audio,
 video,
-input {
+input,
+button {
   outline: none;
   text-decoration: none;
   margin: 0;
@@ -87,8 +91,10 @@ input {
   border: 0;
   font-size: 100%;
   /* font: inherit; */
-  vertical-align: baseline;
+  font-family: 'SpoqaHanSans', 'Noto Sans SC', 'APPLE SD Gothic NEO',
+    'sans-serif';
 }
+// vertical-align: baseline;
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
