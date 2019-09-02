@@ -90,7 +90,6 @@
       border-left: 1px solid #dbdbdb;
       box-sizing: border-box;
       flex: 1;
-      height: 100%;
       .header_menuitem {
         padding: 6px 0;
 
@@ -109,7 +108,7 @@
         justify-content: center;
         align-items: center;
         flex: 1;
-        height: 100%;
+
         span {
           position: relative;
           font-size: 16px;
@@ -149,7 +148,6 @@
 
   .header_menuicon {
     display: flex;
-    height: 100%;
     cursor: pointer;
 
     .header_menuicon_item {
@@ -157,10 +155,10 @@
       justify-content: center;
       align-items: center;
       width: 85px;
-      height: 100%;
 
       .header_menuicon_button {
         position: relative;
+        margin-right: 5px;
         background-color: white;
         border: 1px solid white;
         border: none;

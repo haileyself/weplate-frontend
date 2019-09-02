@@ -11,15 +11,45 @@ class Main extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      mode: false,
+      value: '',
 
     };
   }
+
+  onChangeHandler = (e) => {
+    this.setState({
+      value: e.target.value,
+    });
+  }
+
+  onClickHandlerMenuIcon = () => (
+    this.setState((prev) => (
+      { mode: !prev.mode })))
+
+  // filtering = () => {
+  //   FoodDatas.map((ele) => {
+  //     if (ele.des.includes(this.state.value)) {
+  //       <FoodImtem
+  //         key={ele.id}
+  //         src={ele.img}
+  //         url={ele.url}
+  //         descript={ele.des}
+  //       />;
+  //     }
+  //   });
+  // };
 
   render() {
     return (
       <div className="main-page">
         {/* {메인 헤더부분} */}
-        <Header logo={logo} />
+        <Header
+          logo={logo}
+          mode={this.state.mode}
+          onClickEvent={this.onClickHandlerMenuIcon}
+          onChangeEvent={this.onChangeHandler}
+        />
         {/* {메인 리스트부분 } */}
         <main className="main">
           <article className="main_article">
@@ -32,13 +62,18 @@ class Main extends PureComponent {
               <div className="list_contain top_list">
                 <ul className="item ">
                   {FoodDatas.map((ele) => (
+                    // ele.des.includes(this.state.value)
+                    // ? (
+
                     <FoodImtem
                       key={ele.id}
                       src={ele.img}
                       url={ele.url}
                       descript={ele.des}
                     />
+                    // )
                   ))}
+                  {/* {filtering} */}
                 </ul>
 
               </div>

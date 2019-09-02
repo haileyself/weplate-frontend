@@ -6,27 +6,11 @@ import './header.scss';
 class Header extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      mode: false,
-      value: '',
-    };
   }
 
-  onChangeHandler = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
-  }
-
-  // onClickHandler = () => {
-  //   console.log(this.state.value);
-  // };
-
-  onClickHandlerMenuIcon = () => (
-    this.setState((prev) => (
-      { mode: !prev.mode })))
 
   render() {
+    const { onClickHandlerMenuIcon, onClickEvent, mode } = this.props;
     return (
       <header className="header">
         <a className="header_logo" href="/">
@@ -42,12 +26,12 @@ class Header extends PureComponent {
                 id="mainSearch"
                 placeholder="지역, 식당 또는 음식"
                 className="search_text"
-                onChange={this.onChangeHandler}
+                onChange={this.props.onChangeEvent}
               />
               <button
                 type="button"
                 className="search_btn"
-                onClick={this.onClickHandler}
+                onClick={onClickHandlerMenuIcon}
               >CLEAR
               </button>
 
@@ -93,13 +77,13 @@ class Header extends PureComponent {
             <button
               type="button"
               className="header_menuicon_button"
-              onClick={this.onClickHandlerMenuIcon}
+              onClick={onClickEvent}
             >
               <i className="button" />
             </button>
           </li>
         </ul>
-        {this.state.mode ? <ShowMenu onClick={this.onClickHandlerMenuIcon} /> : ' '}
+        {mode ? <ShowMenu onClick={this.onClickHandlerMenuIcon} onClickEvent={onClickEvent} /> : ' '}
       </header>
     );
   }
