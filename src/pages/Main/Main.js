@@ -41,6 +41,7 @@ class Main extends PureComponent {
   // };
 
   render() {
+    console.log('온체인지 될때마다 출력!');
     return (
       <div className="main-page">
         {/* {메인 헤더부분} */}
@@ -62,16 +63,16 @@ class Main extends PureComponent {
               <div className="list_contain top_list">
                 <ul className="item ">
                   {FoodDatas.map((ele) => (
-                    // ele.des.includes(this.state.value)
-                    // ? (
+                    ele.des.includes(this.state.value)
+                      ? (
 
-                    <FoodImtem
-                      key={ele.id}
-                      src={ele.img}
-                      url={ele.url}
-                      descript={ele.des}
-                    />
-                    // )
+                        <FoodImtem
+                          key={ele.id}
+                          src={ele.img}
+                          url={ele.url}
+                          descript={ele.des}
+                        />
+                      ) : ''
                   ))}
                   {/* {filtering} */}
                 </ul>

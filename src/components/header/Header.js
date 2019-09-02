@@ -8,9 +8,13 @@ class Header extends PureComponent {
     super(props);
   }
 
+  token = localStorage.getItem('weple-token');
 
   render() {
-    const { onClickHandlerMenuIcon, onClickEvent, mode } = this.props;
+    const {
+      onClickHandlerMenuIcon, onClickEvent, onChangeEvent, mode,
+    } = this.props;
+    console.log(this.token);
     return (
       <header className="header">
         <a className="header_logo" href="/">
@@ -20,13 +24,13 @@ class Header extends PureComponent {
         <form className="form_wrap">
           <fieldset className="fieldset_wrap">
             <legend className="form_fieldset">전체 검색</legend>
-            <label htmlFor="mainSearch" className="label_wrap">
+            <label htmlFor="mms" className="label_wrap">
               <input
                 type="text"
-                id="mainSearch"
+                id="mms"
                 placeholder="지역, 식당 또는 음식"
                 className="search_text"
-                onChange={this.props.onChangeEvent}
+                onChange={onChangeEvent}
               />
               <button
                 type="button"
@@ -60,11 +64,20 @@ class Header extends PureComponent {
             </Link>
           </li>
           <div className="header_menuitem_wrap ">
-            <li className="header_menuitem underline-from-left">
-              <Link to="./login">
-                <span>로그인</span>
-              </Link>
-            </li>
+            {this.token ? (
+              <li className="header_menuitem underline-from-left">
+                <Link to="./login">
+                  <span>로그아웃</span>
+                </Link>
+              </li>
+            )
+              : (
+                <li className="header_menuitem underline-from-left">
+                  <Link to="./login">
+                    <span>로그인</span>
+                  </Link>
+                </li>
+              )}
             <li className="header_menuitem underline-from-left">
               <Link to="/signup">
                 <span>회원가입</span>
@@ -78,8 +91,7 @@ class Header extends PureComponent {
               type="button"
               className="header_menuicon_button"
               onClick={onClickEvent}
-            >
-              <i className="button" />
+            >              <i className="button" />
             </button>
           </li>
         </ul>

@@ -14,15 +14,22 @@ class Login extends React.Component {
     };
   }
 
-    clickLoginBtn = () => {
-      if (this.state.email.length === 0) {
-        alert('Email을 입력해주세요');
-      }
-      if (this.state.password.length === 0) {
-        alert('Password를 입력해주세요');
-      }
-      this.props.history.push('/');
-    };
+  clickLoginBtn = () => {
+    const {
+      email,
+      password,
+      history,
+    } = this.state;
+
+    if (email.length === 0) {
+      alert('Email을 입력해주세요');
+    }
+    if (password.length === 0) {
+      alert('Password를 입력해주세요');
+    }
+    history.push('/');
+  };
+
 
     setEmail = (e) => {
       this.setState({ email: e.target.value });
@@ -31,6 +38,7 @@ class Login extends React.Component {
     setPassword = (e) => {
       this.setState({ password: e.target.value });
     }
+
 
     render() {
       return (

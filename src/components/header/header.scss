@@ -1,4 +1,5 @@
 @import '../../style/mediascreen.scss';
+
 .header {
   display: flex;
   flex-direction: row;
@@ -200,6 +201,7 @@
       margin: 0 0 0 15px;
       display: flex;
       margin: 0 25px;
+
       .header_logo_logoIcon {
         background-image: url('https://mp-seoul-image-develop-s3.mangoplate.com/web/resources/201802286455…mobile.png?fit=around|*:*&crop=*:*;*,*&output-format=png&output-quality=80');
         background-position: -491px -56px;

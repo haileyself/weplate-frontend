@@ -5,6 +5,12 @@ const FoodDatas = [{
   des: '정돈 프리미엄',
 },
 {
+  id: 6,
+  img: 'https://mp-seoul-image-production-s3.mangoplate.com/832260_1538990876392786.jpg?fit=around|362:362&crop=362:362;*,*&output-format=jpg',
+  url: 'https://www.mangoplate.com/restaurants/jiQPoOdNDqQc',
+  des: '쿠이신보',
+},
+{
   id: 2,
   img: 'https://mp-seoul-image-production-s3.mangoplate.com/184525_1432359840673?fit=around|362:362&crop=362:362;*,*&output-format=jpg',
   url: 'https://www.mangoplate.com/restaurants/AyeigDxaTh',
