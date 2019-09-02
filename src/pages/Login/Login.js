@@ -57,6 +57,7 @@ class Login extends React.Component {
       this.setState({ name: e.target.value });
     };
 
+
     setEmail = (e) => {
       this.setState({ email: e.target.value });
     };

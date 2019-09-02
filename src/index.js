@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './style/index.css';
+import './style/reset.scss';
 import Routes from './Routes';
 
 

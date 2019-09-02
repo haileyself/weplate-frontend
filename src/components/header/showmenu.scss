@@ -1,0 +1,74 @@
+.ShowMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #ff792a;
+  -webkit-overflow-scrolling: touch;
+  .ShowMenu_header {
+    position: relative;
+    margin-top: 4px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    .ShowMenu_logo {
+      display: block;
+      width: 30px;
+      margin: 0 auto;
+      .ShowMenu_logo_img {
+        display: block;
+        // width: 20x;
+        height: 35px;
+        background: url('../../imges/showmenulogo.jpeg');
+        background-size: cover;
+        // background
+        // color: rgba(255, 255, 255, 0);
+      }
+    }
+
+    .ShowMenu_closeButton {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      cursor: pointer;
+      .ShowMenu_closeButton_Icon {
+        display: block;
+        width: 35px;
+        height: 35px;
+        background: url('../../imges/closeicon.jpeg') no-repeat;
+        background-size: cover;
+        color: rgba(255, 121, 42, 1);
+        // background-position: -400px 0;
+      }
+    }
+  }
+  .ShowMenu_nav {
+    .ShowMenu_navlist {
+      text-align: center;
+      .ShowMenu_navitem {
+        position: relative;
+        height: 60px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        // display: inline-block;
+        padding-top: 15px;
+        .ShowMenu_navlink {
+          .ShowMenu_navtext {
+            position: relative;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}
+.ShowMenu_opnen {
+  display: block;
+}
