@@ -9,35 +9,59 @@ class Login extends React.Component {
     super();
 
     this.state = {
+      name: '',
       email: '',
       password: '',
     };
+  } // end constructor
+
+  clickLoginBtn = async () => {
+    if (this.state.name.length === 0) {
+      alert('이름을 입력해주세요');
+      return;
+    }
+
+    if (this.state.email.length === 0) {
+      alert('Email을 입력해주세요');
+      return;
+    }
+    if (this.state.password.length === 0) {
+      alert('Password를 입력해주세요');
+      return;
+    }
+
+    fetch('http://10.58.7.15:8003/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user_name: this.state.name,
+        user_email: this.state.email,
+        user_password: this.state.password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        if (response.user_access_token) {
+          localStorage.setItem('weple-token', response.user_access_token);
+          this.props.history.push('/');
+        }
+      });
   }
 
-  clickLoginBtn = () => {
-    const {
-      email,
-      password,
-      history,
-    } = this.state;
-
-    if (email.length === 0) {
-      alert('Email을 입력해주세요');
-    }
-    if (password.length === 0) {
-      alert('Password를 입력해주세요');
-    }
-    history.push('/');
-  };
+    setName = (e) => {
+      this.setState({ name: e.target.value });
+    };
 
     setEmail = (e) => {
       this.setState({ email: e.target.value });
-    }
+    };
 
     setPassword = (e) => {
       this.setState({ password: e.target.value });
-    }
-
+    };
 
     render() {
       return (
@@ -54,6 +78,13 @@ class Login extends React.Component {
                 </div>
                 <div className="login_form">
                   <input
+                    onChange={this.setName}
+                    className="login_input"
+                    type="text"
+                    placeholder="Your Name"
+                    value={this.state.name}
+                  />
+                  <input
                     onChange={this.setEmail}
                     className="login_input"
                     type="email"
@@ -67,7 +98,6 @@ class Login extends React.Component {
                     placeholder="Your Password"
                     value={this.state.password}
                   />
-                  {/* <button className="login_btn">Login</button> */}
                   <input type="button" className="login_btn" value="Login" onClick={this.clickLoginBtn} />
                   <div className="login_checkbox">
                     <input type="checkbox" className="login_check" />
@@ -78,9 +108,9 @@ class Login extends React.Component {
             </article>
           </div>
         </div>
-
       );
     }
 }
+
 
 export default withRouter(Login);

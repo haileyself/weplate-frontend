@@ -12,10 +12,12 @@ $break-mobile: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 250px;
   }
+
   .login_content {
-    min-height: 100vh;
-    max-width: 100%;
+    // min-height: 100vh;
+    // max-width: 100%;
     width: 384px;
     margin: 0 auto;
     padding: 24px;
@@ -107,7 +109,6 @@ $break-mobile: 350px;
   }
 
   .login_btn {
-    width: 100%;
     display: block;
     background-color: #ff7100;
     color: #fff;
