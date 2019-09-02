@@ -47,6 +47,8 @@ class Login extends React.Component {
         if (response.user_access_token) {
           localStorage.setItem('weple-token', response.user_access_token);
           this.props.history.push('/');
+        } else if (response.error_message) {
+          alert(response.error_message);
         }
       });
   }
