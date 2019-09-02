@@ -12,10 +12,10 @@ class FoodImtem extends PureComponent {
     return (
       <li>
         <div className="item_text">
-          <span>{descript}</span>
+          <div className="text">{descript}</div>
         </div>
-        <a href={url}>
-          <img src={src} alt={`${descript} 이미지`} />
+        <a className="img_wrap" href={url}>
+          <img className="item_img" src={src} alt={`${descript} 이미지`} />
         </a>
       </li>
     );
