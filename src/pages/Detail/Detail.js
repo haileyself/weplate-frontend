@@ -1,5 +1,6 @@
 import React from 'react';
 import './Detail.scss';
+import Header from '../../components/header/Header';
 
 import Food1 from './food1.jpg';
 import Food2 from './food2.jpg';
@@ -14,7 +15,7 @@ class Detail extends React.Component {
       <div className="detail_page">
         <div className="detail_wrapper">
           <header className="detail_header">
-            <div>헤더넣기</div>
+            <Header />
           </header>
           <aside className="detail_Photolist">
             <div className="photoList">
