@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import { Link } from 'react-router-dom';
 import './header.scss';
 
