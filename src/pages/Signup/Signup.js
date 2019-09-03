@@ -10,8 +10,7 @@ class Signup extends React.Component {
     this.state = {
       email: '',
       password: '',
-      repassword: '',
-      name: ''
+      repassword: ''
     };
   }
 
@@ -19,14 +18,8 @@ class Signup extends React.Component {
     const {
       email,
       password,
-      name,
       repassword
     } = this.state;
-
-    if (name.length === 0) {
-      alert('이름을 입력해주세요');
-      return;
-    }
 
     if (email.length === 0) {
       alert('Email을 입력해주세요');
@@ -54,7 +47,6 @@ class Signup extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user_name: this.state.name,
         user_email: this.state.email,
         user_password: this.state.password,
       }),
@@ -71,10 +63,6 @@ class Signup extends React.Component {
       });
 
   };
-
-  setName = (e) => {
-    this.setState({ name: e.target.value });
-  }
 
   setEmail = (e) => {
     this.setState({ email: e.target.value });
@@ -106,13 +94,6 @@ class Signup extends React.Component {
                 type="email"
                 placeholder="Please enter your Email"
                 value={this.state.email}
-                maxLength="30"
-              />
-              <input
-                onChange={this.setName}
-                type="text"
-                placeholder="Please enter your Name"
-                value={this.state.name}
                 maxLength="30"
               />
               <input
