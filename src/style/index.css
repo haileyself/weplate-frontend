@@ -5,3 +5,11 @@ body {
   font-family: 'SpoqaHanSans', 'Noto Sans SC', 'APPLE SD Gothic NEO',
     'sans-serif';
 }
+
+button {
+  appearance: none;
+  cursor: pointer;
+  border: 0px;
+  border-radius: 0;
+  background-color: transparent;
+}
