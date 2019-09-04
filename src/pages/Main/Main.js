@@ -37,13 +37,15 @@ class Main extends PureComponent {
 
   loadImg = () => (
     this.restaurantList.map((ele) => (
-      <FoodImtem
-        key={ele.restaurant__id}
-        id={ele.restaurant__id}
-        src={ele.image}
-        url={ele.url}
-        descript={ele.restaurant__name}
-      />
+      <Link to={`/detail/${ele.restaurant__id}`}>
+        <FoodImtem
+          key={ele.restaurant__id}
+          id={ele.restaurant__id}
+          src={ele.image}
+          url={ele.url}
+          descript={ele.restaurant__name}
+        />
+      </Link>
     ))
   )
 
@@ -55,7 +57,8 @@ class Main extends PureComponent {
   }
 
   onClickSearchButton = () => (
-    this.props.history.push('/detail')
+    this.loadImg
+    // this.props.history.push('/detail')
   )
 
   // onClickMainImage = () => {
@@ -67,7 +70,8 @@ class Main extends PureComponent {
 
   onKeyPressHandler = (e) => {
     if (e.key === 'Enter') {
-      this.props.history.push('/detail');
+      return this.loadImg;
+      // this.props.history.push('/detail');
     }
   }
 
@@ -151,11 +155,13 @@ class Main extends PureComponent {
                 </a>
                 <button type="button" className="btn android">
                   <a href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
+                    {/* <Link to={`/main/${'play.google.com'}`}> */}
                     <img
                       src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bzdlmp2toaxrdjqg.png"
                       alt="android market button"
                       width="180px"
                     />
+                    {/* </Link> */}
                   </a>
                 </button>
                 <button type="button" className="btn ios">
@@ -175,16 +181,18 @@ class Main extends PureComponent {
                 </div>
               </div>
               <div className="list_contain top_list">
-                <ul className="item ">
+                <ul className="items">
                   {/* {this.loadImg} */}
                   {restaurantList.map((ele) => (
-                    <FoodImtem
-                      key={ele.restaurant__id}
-                      id={ele.restaurant__id}
-                      src={ele.image}
-                      url={ele.url}
-                      descript={ele.restaurant__name}
-                    />
+                    <Link to={`/detail/${ele.restaurant__id}`}>
+                      <FoodImtem
+                        key={ele.restaurant__id}
+                        id={ele.restaurant__id}
+                        src={ele.image}
+                        url={ele.url}
+                        descript={ele.restaurant__name}
+                      />
+                    </Link>
                   ))}
                   {/* {filtering} */}
                 </ul>
