@@ -1,10 +1,22 @@
+      $break-mobile: 350px;
 
       .signup-page {
         display: flex;
         align-items: center;
         justify-content: center;
+        @media screen and (max-width: $break-mobile) {
+          width: 330px;
+        }
       }
-      
+      .input-wrap {
+        display: flex;
+        flex-direction: column;
+        @media screen and (max-width: $break-mobile) {
+          width: 280px;
+          margin: 0px 5px;
+        }
+      }
+
       .signup-content {
         min-height: 100vh;
         max-width: 100%;
@@ -29,6 +41,10 @@
         width:100px;
         height: 45px;
         margin-bottom: 45px;
+        @media screen and (max-width: $break-mobile) {
+          width: 75px;
+          height: 35px;
+        }
       }
     
       .signup-info {
@@ -42,6 +58,9 @@
         font-size: 1.375rem;
         line-height: 32px;
         color: #2e2545;
+        @media screen and (max-width: $break-mobile) {
+          font-size: 1rem;
+        }
       }
 
       .signup-subtitle {
@@ -53,6 +72,9 @@
         font-weight: 300;
         color: #2e2545;
         padding-top: 5px;
+        @media screen and (max-width: $break-mobile) {
+          font-size: 0.95rem;
+        }
       }
       
       .signup-form {
@@ -82,7 +104,7 @@
         border-color: #4CAF50;
       }
 
-       .signup-btn {
+       input.signup-btn {
         width: 100%;
         display: block;
         background-color: #ff7100;

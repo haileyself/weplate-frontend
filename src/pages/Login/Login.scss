@@ -1,136 +1,162 @@
+$break-mobile: 350px;
+
 .login_page {
-    * {
-     outline: none;
+  * {
+    outline: none;
+  }
+  //  border: solid 1px red;
+  background-color: #fff;
+  display: block;
+
+  .login_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 250px;
+  }
+
+  .login_content {
+    // min-height: 100vh;
+    // max-width: 100%;
+    width: 384px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // border: solid 1px red;
+    @media screen and (max-width: $break-mobile) {
+      width: 330px;
     }
+  }
+  .login_wrapper {
+    display: flex;
+    flex-direction: column;
+    // border: solid 1px red;
+    @media screen and (max-width: $break-mobile) {
+      width: 280px;
+      margin: 0px 5px;
+    }
+  }
+  .login_header {
+    // border: 1px solid blue;
+    color: #2e2545;
+    font-size: 1.375rem;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      display: flex;
+      justify-content: space-between;
+      width: 100px;
+      height: 45px;
+      margin-bottom: 45px;
+      @media screen and (max-width: $break-mobile) {
+        width: 75px;
+        height: 35px;
+      }
+    }
+  }
+  .login_info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login_title {
+    font-weight: 700;
+    margin-right: 8px;
+    display: inline-block;
     //  border: solid 1px red;
-     background-color: #fff;
-     display: block;
+    font-size: 1.375rem;
+    line-height: 32px;
+    color: #2e2545;
+    @media screen and (max-width: $break-mobile) {
+      font-size: 1rem;
+    }
+  }
 
-        .login_container  {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .login_content {
-            min-height: 100vh;
-            max-width: 100%;
-            width: 384px;
-            margin: 0 auto;
-            padding : 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            // border: solid 1px red;
-        }
-        .login_wrapper {
-            display:  flex;
-            flex-direction: column;
-            // border: solid 1px red;
-        }
-      
-        .login_header{
-        // border: 1px solid blue;
-        color: #2e2545;
-        font-size: 1.375rem;
-        display: flex;
-        flex-direction: column;
-         
-         img {
-             display:flex;
-             justify-content: space-between;
-             width:100px;
-             height: 45px;
-             margin-bottom: 45px;
-         }
-        }
-        .login_info {
-            display: flex;
-            flex-direction: column;
-        }
+  .login_subtitle {
+    display: block;
+    // border: solid 1px red;
+    margin-bottom: 24px;
+    width: 336px;
+    height: 32px;
+    font-size: 1.275rem;
+    font-weight: 300;
+    color: #2e2545;
+    padding-top: 5px;
+    @media screen and (max-width: $break-mobile) {
+      font-size: 0.95rem;
+    }
+  }
 
-        .login_title {
-         font-weight: 700;
-         margin-right: 8px;
-         display: inline-block;
-        //  border: solid 1px red;
-         font-size: 1.375rem;
-         line-height: 32px;
-         color: #2e2545;
-        }
+  .login_form {
+    font-weight: 400;
+    height: 200px;
+  }
+  input {
+    margin: 0;
+    padding: 16px;
+    width: 100%;
+    height: 48px;
+    border: 1px solid rgba(33, 34, 64, 0.16);
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 16px;
+  }
 
-        .login_subtitle {
-            display: block;
-            // border: solid 1px red;
-            margin-bottom: 24px;
-            width: 336px;
-            height: 32px;
-            font-size: 1.275rem;
-            font-weight: 300;
-            color: #2e2545;
-            padding-top: 5px;
-        }
+  .login_btn {
+    display: block;
+    background-color: #ff7100;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding: 12px 20px;
+    // border: 1px solid red;
+    border-radius: 8px;
+    text-align: center;
+    font-family: CabifyCircular, Avenir Next, Avenir, Segoe UI, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 24px;
+    cursor: pointer;
+    box-shadow: none;
+  }
+  .login_checkbox {
+    display: flex;
+    flex-direction: row;
+  }
+  .login_check {
+    width: 23px;
+    height: 23px;
+    @media screen and (max-width: $break-mobile) {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  label {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #2e2545;
+    margin-left: 5px;
+    @media screen and (max-width: $break-mobile) {
+      font-size: 0.8rem;
+    }
+  }
 
-        .login_form {
-            font-weight: 400;
-            height: 200px;
-        }
-        input {
-            margin: 0;
-            padding: 16px;
-            width: 100%;
-            height: 48px;
-            border: 1px solid rgba(33,34,64,.16);
-            border-radius: 8px;
-            font-size: .75rem;
-            font-weight: 400;
-            line-height: 16px;
-            margin-bottom: 16px;
+  button:focus {
+    outline: none;
+  }
 
-        }
-        .login_btn {
-            width: 100%;
-            display: block;
-            background-color: #ff7100;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-            padding: 12px 20px;
-            // border: 1px solid red;
-            border-radius: 8px;
-            text-align: center;
-            font-family: CabifyCircular,Avenir Next,Avenir,Segoe UI,sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            line-height: 24px;
-            cursor: pointer;
-            box-shadow: none;
-        }
-        .login_checkbox {
-            display: flex;
-            flex-direction: row;
-        }
-        .login_check {
-            width: 23px;
-            height: 23px;
-        }
-        label {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #2e2545; 
-            margin-left: 5px;
-        }
+  input:hover {
+    border: solid 1px #ff7100;
+  }
 
-        button:focus {
-            outline: none;
-        }
-
-        input:hover {
-            border: solid 1px #ff7100;
-        }
-
-        .login_btn:hover {
-            opacity: 0.7;
-            transition: .7s
-        } 
+  .login_btn:hover {
+    opacity: 0.7;
+    transition: 0.7s;
+  }
 }
