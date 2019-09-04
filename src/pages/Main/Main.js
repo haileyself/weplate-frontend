@@ -150,17 +150,21 @@ class Main extends PureComponent {
                   />
                 </a>
                 <button type="button" className="btn android">
-                  <img
-                    src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bzdlmp2toaxrdjqg.png"
-                    alt="android market button"
-                    width="180px"
-                  />
+                  <a href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bzdlmp2toaxrdjqg.png"
+                      alt="android market button"
+                      width="180px"
+                    />
+                  </a>
                 </button>
                 <button type="button" className="btn ios">
-                  <img
-                    src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/f7eokfaszt4gpkh6.svg?v=1"
-                    alt="app store button"
-                  />
+                  <a href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/f7eokfaszt4gpkh6.svg?v=1"
+                      alt="app store button"
+                    />
+                  </a>
                 </button>
               </aside>
             </header>

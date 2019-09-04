@@ -8,6 +8,7 @@ class Header extends PureComponent {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
+    this.token = localStorage.getItem('apk');
     this.state = {
       scroll: 0,
       isLogin: false,
@@ -15,6 +16,7 @@ class Header extends PureComponent {
   }
 
   componentDidMount() {
+  // localStorage.setItem('apk', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZ2FwZ2kxMjM0IiwiZXhwIjo5MDMyNTQ5ODUzfQ.sHKjXN8J9v216OAld-el7cWWLdoUcxf0Mtxv1y6wTeo');
     window.addEventListener('scroll', this.handleScroll);
     this.getTokenKey();
   }
@@ -33,16 +35,13 @@ class Header extends PureComponent {
   }
 
   getTokenKey = () => {
-    const token = localStorage.getItem('weple-token');
-    console.log(token);
-    if (token) {
-      // console.log('??');
-      this.setState((prev) => (
-        { isLogin: !prev.isLogin }
+    // console.log(this.token);
+    if (this.token) {
+      this.setState({
+        isLogin: !this.isLogin,
         // console.log(!prev.isLogin)
-      ));
+      });
     }
-    // console.log(token);
   }
 
   tokenHandler = () => {
@@ -57,7 +56,7 @@ class Header extends PureComponent {
     const {
       onClickEvent, mode, logoOrange, logoWhite,
     } = this.props;
-    // console.log(this.token);
+    console.log(this.state.isLogin);
     return (
       <header ref={this.myRef} className="header header--Transparent">
         <a className="header_logo" href="/">
@@ -82,40 +81,43 @@ class Header extends PureComponent {
         <ul className="header_menulist">
           <li className="header_menuitem underline-from-left">
             {/* <a className="header_menulink" href="/"> */}
-            <Link to="/">
+            <Link to="/" className="text_color">
               <span>EAT딜</span>
             </Link>
             {/* </a> */}
           </li>
           <li className="header_menuitem underline-from-left">
             {/* <a className="header_menulink" href="/"> */}
-            <Link to="/">
+            <Link to="/" className="text_color">
               <span>맛집 리스트</span>
             </Link>
             {/* </a> */}
           </li>
           <li className="header_menuitem underline-from-left">
-            <Link to="/">
+            <Link to="/" className="text_color">
               <span>망고스토리</span>
             </Link>
           </li>
           {/* <div className="header_menuitem_wrap "> */}
-          {this.isLogin ? (
-            <li className="header_menuitem underline-from-left">
-              <Link to="/">
+          {this.state.isLogin ? (
+            <li
+              className="header_menuitem underline-from-left"
+              onClick={this.tokenHandler}
+            >
+              <Link to="/" className="text_color">
                 <sapn>로그아웃</sapn>
               </Link>
             </li>
           )
             : (
               <li className="header_menuitem underline-from-left">
-                <Link to="./login">
+                <Link to="./login" className="text_color">
                   <span>로그인</span>
                 </Link>
               </li>
             )}
           <li className="header_menuitem underline-from-left">
-            <Link to="/signup">
+            <Link to="/signup" className="text_color">
               <span>회원가입</span>
             </Link>
           </li>
