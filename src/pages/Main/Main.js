@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Route, Switch, Link,
+} from 'react-router-dom';
 import Header from '../../components/header/Header';
 import SearchList from './SearchList';
 import FoodImtem from './FoodItem';
@@ -16,15 +18,66 @@ class Main extends PureComponent {
     this.state = {
       mode: false,
       textValue: '',
-
+      restaurantList: [],
     };
   }
+
+  componentDidMount() {
+    fetch('http://10.58.4.74:8000/main_list')
+      .then((response) => response.json())
+      .then((item) => {
+        console.log(item);
+        this.setState({
+          restaurantList: item.main_restaurant,
+        // item.main_restaurant_name.map((ele) => (
+        //   console.log(ele)
+        });
+      });
+  }
+
+  loadImg = () => (
+    this.restaurantList.map((ele) => (
+      <FoodImtem
+        key={ele.restaurant__id}
+        id={ele.restaurant__id}
+        src={ele.image}
+        url={ele.url}
+        descript={ele.restaurant__name}
+      />
+    ))
+  )
+
 
   onChangeHandler = (e) => {
     this.setState({
       textValue: e.target.value,
     });
   }
+
+  onClickSearchButton = () => (
+    this.props.history.push('/detail')
+  )
+
+  // onClickMainImage = () => {
+  //   // console.log(history);
+  //   // console.log(typeof e.target.id);
+  //   // fetch(`http://10.58.4.74:8000/main_list/${Number(e.target.id)}`);
+  //   // history.push('/detail');
+  // }
+
+  onKeyPressHandler = (e) => {
+    if (e.key === 'Enter') {
+      this.props.history.push('/detail');
+    }
+  }
+
+  // search = async () => {
+  //   await fetch();
+  //   this.setState((prev) => (
+  //     { valueList: [...prev] }
+  //   ));
+  // }
+
 
   onClickHandlerMenuIcon = () => (
     this.setState((prev) => (
@@ -45,13 +98,15 @@ class Main extends PureComponent {
 
   render() {
     console.log(this.state.textValue);
+    // console.log(this.state.restaurantList);
+    const { mode, restaurantList } = this.state;
     return (
       <div className="main-page">
         {/* {메인 헤더부분} */}
         <Header
           logoOrange={logoOrange}
           logoWhite={logoWhite}
-          mode={this.state.mode}
+          mode={mode}
           onClickEvent={this.onClickHandlerMenuIcon}
         />
         {/* {메인 리스트부분 } */}
@@ -72,22 +127,21 @@ class Main extends PureComponent {
                     autoComplete="off"
                     name="m-s"
                     onChange={this.onChangeHandler}
+                    onKeyPress={this.onKeyPressHandler}
                   />
                   <span className="clear_btn">CLEAR</span>
                 </label>
                 <input
                   className="btn_search"
                   type="submit"
+                  name="search"
                   value="검색"
+                  onClick={this.onClickSearchButton}
                 />
               </fieldset>
-              {FoodDatas.map((ele) => (
-                <SearchList
-                  key={ele.id}
-                  url={ele.url}
-                  des={ele.des}
-                />
-              ))}
+              {/* {textValue.length ? textValue.map((ele) => (
+                <SearchList des={ele.des} />
+              )) : ''} */}
               <aside className="shortcut_app type_main">
                 <a className="btn inbound only_desktop" href="/">
                   <img
@@ -118,20 +172,18 @@ class Main extends PureComponent {
               </div>
               <div className="list_contain top_list">
                 <ul className="item ">
-                  {FoodDatas.map((ele) => (
-
-
+                  {/* {this.loadImg} */}
+                  {restaurantList.map((ele) => (
                     <FoodImtem
-                      key={ele.id}
-                      src={ele.img}
+                      key={ele.restaurant__id}
+                      id={ele.restaurant__id}
+                      src={ele.image}
                       url={ele.url}
-                      descript={ele.des}
+                      descript={ele.restaurant__name}
                     />
-
                   ))}
                   {/* {filtering} */}
                 </ul>
-
               </div>
             </section>
           </article>

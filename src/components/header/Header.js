@@ -57,7 +57,7 @@ class Header extends PureComponent {
     const {
       onClickEvent, mode, logoOrange, logoWhite,
     } = this.props;
-    console.log(this.token);
+    // console.log(this.token);
     return (
       <header ref={this.myRef} className="header header--Transparent">
         <a className="header_logo" href="/">
