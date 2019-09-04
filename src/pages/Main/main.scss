@@ -1,15 +1,162 @@
 @import '../../style/mediascreen.scss';
 .main-page {
+  article.main_padding {
+    padding-top: 0;
+  }
   img {
     color: rgba(255, 255, 255, 0);
     text-indent: -9999px;
   }
   .main {
+    article.main_article {
+      position: relative;
+      overflow: hidden;
+    }
     .main_article {
-      margin: 0 auto;
-      max-width: 1240px;
-      margin-top: 82px;
+      // margin-top: 82px;
+      .main_header {
+        background-image: url('https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bndai-bcgf7x2rtb.jpg?fit=around|*:*&crop=*:*;*,*&output-format=jpg&output-quality=80');
+        padding-top: 150px;
+        overflow: hidden;
+        position: relative;
+        // padding-top: 52px;
+        text-align: center;
+        background-position: center;
+        background-size: cover;
+
+        .main_header_title {
+          width: 720px;
+          font-size: 2.2rem;
+          line-height: 45px;
+          position: relative;
+          z-index: 1;
+          margin: 0 auto;
+          width: 280px;
+          font-size: 1.625rem;
+          color: #ffffff;
+          line-height: 32px;
+        }
+
+        .main_search {
+          height: 50px;
+          width: 738px;
+          border: 1px solid #ff792a;
+          border: 2px solid #ff7100;
+          border-radius: 80px;
+          overflow: hidden;
+          position: relative;
+          margin: 34px 15px 0 15px;
+          margin: 45px auto 0 auto;
+          height: 48px;
+          border-radius: 50px;
+          background-color: #ffffff;
+          // border: 3px solid black;
+
+          input[type='text'] {
+            display: block;
+            width: 100%;
+            font-size: 0.813rem;
+            color: #cbcbcb;
+            line-height: 44px;
+            border: 0;
+            height: 50px;
+            font-size: 1.1rem;
+            line-height: 50px;
+            color: #000;
+            // border: 2px solid blue;
+          }
+          input[type='text']:placeholder-shown {
+            height: 50px;
+            font-size: 1.1rem;
+            line-height: 50px;
+            color: #000;
+            line-height: 50px;
+            color: #cbcbcb;
+            opacity: 1;
+          }
+          legend {
+            display: none;
+            position: absolute;
+            width: 0;
+            height: 0;
+            font-size: 0;
+            overflow: hidden;
+            visibility: hidden;
+          }
+
+          .search_word {
+            position: absolute;
+            top: 0;
+            right: 110px;
+            bottom: 0;
+            left: 48px;
+            right: 238px;
+            left: 85px;
+
+            .clear_btn {
+              display: none;
+              position: absolute;
+              top: 50%;
+              right: -53px;
+              color: #dbdbdb;
+              cursor: pointer;
+              font-size: 14px;
+            }
+          }
+
+          .icon {
+            left: -27px;
+            left: -52px;
+            margin-top: -15.5px;
+            background-image: url('https://mp-seoul-image-develop-s3.mangoplate.com/web/resources/2018022864551sprites_mobile.png?fit=around|*:*&crop=*:*;*,*&output-format=png&output-quality=80');
+            background-position: -102px 28px;
+            width: 30px;
+            height: 31px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            text-indent: -9999px;
+            // border: 1px solid blue;
+            // background-color: black;
+          }
+
+          .btn_search {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: -1px;
+            width: 110px;
+            font-size: 0.813rem;
+            color: #ffffff;
+            line-height: 48px;
+            border-radius: 50px;
+            background-color: #ff7100;
+            height: 100%;
+            width: 180px;
+            font-size: 1.313rem;
+            line-height: 52px;
+            border-radius: 80px;
+            -webkit-appearance: none;
+          }
+        }
+      }
+      .main_header::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
       .main_article_section {
+        // max-width: 1240px;
+        margin: 0 auto;
+        padding-top: 38px;
         .tittle_wrap {
           display: block;
           // position: absolute;
@@ -24,14 +171,15 @@
         }
         .list_contain {
           margin-top: 80px;
-          // display: grid;
+          // max-width: 1024px;;
           .item {
             margin: 0 40px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             grid-gap: 50px;
             li {
               position: relative;
+              cursor: pointer;
               .item_text {
                 width: 100%;
                 position: absolute;
@@ -51,7 +199,8 @@
               .img_wrap {
                 .item_img {
                   width: 100%;
-                  height: 300px;
+                  height: 200px;
+                  object-fit: cover;
                 }
               }
             }
@@ -59,6 +208,55 @@
         }
       }
     }
+  }
+  .shortcut_app {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    margin-top: 0;
+    padding: 33px 0 0 0;
+    height: 290px;
+    text-align: center;
+
+    .btn {
+      display: inline-block;
+      vertical-align: top;
+
+      img {
+        width: 100%;
+      }
+    }
+    .btn.inbound {
+      margin: 7.5px;
+      margin-top: 10px;
+      float: left;
+
+      img {
+        width: auto;
+        height: 46px;
+      }
+    }
+
+    .btn.android {
+      width: 176px;
+      margin-top: -1px;
+    }
+
+    .btn.ios {
+      margin: 7.5px;
+      margin-top: 10px;
+      width: 154px;
+    }
+  }
+  .shortcut_app.type_main {
+    margin-top: 59px;
+    height: 85px;
+    padding: 21px 40px 0px 40px;
+    height: 110px;
+    text-align: right;
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-top: 30px;
   }
 }
 @media only screen and (max-width: $break-tablet) {
@@ -86,6 +284,32 @@
                 // height: 300px;
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .main-page {
+    .main {
+      .main_article {
+        .main_header {
+          .main_search {
+            height: 50px;
+            width: 438px;
+            border: 1px solid #ff792a;
+            border: 2px solid #ff7100;
+            border-radius: 80px;
+            overflow: hidden;
+            position: relative;
+            margin: 34px 15px 0 15px;
+            margin: 45px auto 0 auto;
+            height: 48px;
+            border-radius: 50px;
+            background-color: #ffffff;
+            // border: 3px solid black;
           }
         }
       }
