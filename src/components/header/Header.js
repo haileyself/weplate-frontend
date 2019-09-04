@@ -45,7 +45,7 @@ class Header extends PureComponent {
   }
 
   tokenHandler = () => {
-    localStorage.setItem('null', this.token);
+    localStorage.setItem('null', '');
     this.setState((prev) => (
       { isLogin: !prev.isLogin }
     ));
