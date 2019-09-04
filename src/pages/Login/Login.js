@@ -16,11 +16,6 @@ class Login extends React.Component {
   } // end constructor
 
   clickLoginBtn = async () => {
-    if (this.state.name.length === 0) {
-      alert('이름을 입력해주세요');
-      return;
-    }
-
     if (this.state.email.length === 0) {
       alert('Email을 입력해주세요');
       return;
@@ -36,7 +31,6 @@ class Login extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user_name: this.state.name,
         user_email: this.state.email,
         user_password: this.state.password,
       }),
@@ -52,10 +46,6 @@ class Login extends React.Component {
         }
       });
   }
-
-    setName = (e) => {
-      this.setState({ name: e.target.value });
-    };
 
 
     setEmail = (e) => {
@@ -80,13 +70,7 @@ class Login extends React.Component {
                   <div className="login_subtitle">Please enter your Email</div>
                 </div>
                 <div className="login_form">
-                  <input
-                    onChange={this.setName}
-                    className="login_input"
-                    type="text"
-                    placeholder="Your Name"
-                    value={this.state.name}
-                  />
+
                   <input
                     onChange={this.setEmail}
                     className="login_input"

@@ -1,15 +1,34 @@
 import React from 'react';
 import './Detail.scss';
 import Header from '../../components/header/Header';
+import ReviewContent from './review_Content';
 
 import Food1 from './food1.jpg';
 import Food2 from './food2.jpg';
 import Food3 from './food3.jpg';
 import Food4 from './food4.jpg';
 import Food5 from './food5.jpg';
+import Profile from './profile.png';
+import NearRes1 from './nearRes1.jpg';
+import NearRes2 from './nearRes1.jpg';
+import NearRes3 from './nearRes1.jpg';
+import NearRes4 from './nearRes1.jpg';
 
 
 class Detail extends React.Component {
+  componentDidMount() {
+    fetch('http://10.58.4.74:8003/comment', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
   render() {
     return (
       <div className="detail_page">
@@ -168,75 +187,220 @@ class Detail extends React.Component {
                     </li>
                   </ul>
                 </header>
+                { /* 리뷰만들기 */}
+                <div className="user_Review_Wrap">
+                  <div className="user_Review">
+                    <textarea
+                      className="user_Text"
+                      placeholder="소중한 리뷰를 남겨주세요!"
+                      maxLength="200"
+                    />
+                    <div className="user_Review_BtnBox">
+                      <input className="user_Review_Btn" type="button" value="리뷰 등록" />
+                    </div>
+                  </div>
+                </div>
                 <ul className="restaurantRvList">
-                  <li className="review_Item">리뷰1
-                    <a href="파일">클릭시 리뷰화면 뜸</a>
-                    <div>
-                      <img alt="user profile" />
-                      <div>리뷰내용</div>
-                      <div>사진리스트</div>
-                      <span>평가아이콘</span>
-                    </div>
-                  </li>
-                  <li className="review_Item">리뷰2
-                    <a href="파일">클릭시 리뷰화면 뜸</a>
-                    <div>
-                      <img alt="user profile" />
-                      <div>리뷰내용</div>
-                      <div>사진리스트</div>
-                      <span>평가아이콘</span>
-                    </div>
-                  </li>
-                  <li className="review_Item">리뷰3
-                    <a href="파일">클릭시 리뷰화면 뜸</a>
-                    <div>
-                      <img alt="user profile" />
-                      <div>리뷰내용</div>
-                      <div>사진리스트</div>
-                      <span>평가아이콘</span>
-                    </div>
-                  </li>
+                  {/* 반복되는 부분 */}
+                  <ReviewContent />
+                  <ReviewContent />
+                  <ReviewContent />
                 </ul>
-              </section>
-              <section className="other_Res">다른 관련식당 리스트부분
               </section>
             </div>
             <div className="column_aside">
-              <div className="detail_map">map</div>
               <div className="aside_inner">
                 <section className="near_Res">
-                      주변식당리스트
-                  <span>주변인기식당</span>
-                  <ul className="near_Res_List">
-                    <li className="near_Res_Item">식당1</li>
-                    <li className="near_Res_Item">식당2</li>
-                    <li className="near_Res_Item">식당3</li>
-                    <li className="near_Res_Item">식당4</li>
-                  </ul>
+                  <span className="near_Res_Title">주변 인기 식당</span>
+                  {/* 리스트 시작  */}
+                  <div className="near_Res_List">
+                    {/* 주변식당리스트 each 시작 */}
+                    <div className="near_Res_Item">
+                      <div className="near_Res_Item_PicAndContent">
+                        <div className="near_Res_Item_Picwrapper">
+                          <a className="near_Res_Item_PicLink">
+                            <img className="near_Res_Item_Pic" src={NearRes1} />
+                          </a>
+                        </div>
+                        <div className="near_Res_Item_Content">
+                          <div className="near_Res_Item_NameWrap">
+                            <a className="near_Res_Item_NameLink">
+                                    하동관
+                            </a>
+                            <span className="near_Res_Item_Rate">3.8</span>
+                          </div>
+                          {/* 식당 제목 평점 끝  */}
+                          <div className="near_Res_Item_Info">
+                            <div className="near_Res_Item_FoodCate near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">음식종류:</span>
+                              <span className="near_Res_Item_Info_Value">탕/찌개/전골</span>
+                            </div>
+                            <div className="near_Res_Item_Place near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">위치:</span>
+                              <span className="near_Res_Item_Info_Value">역삼/선릉</span>
+                            </div>
+                            <div className="near_Res_Item_Price near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label"> 가격대:</span>
+                              <span className="near_Res_Item_Info_Value">만원-2만원</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* 리스트 1개끝 */}
+                    {/* 주변식당리스트 each 시작 */}
+                    <div className="near_Res_Item">
+                      <div className="near_Res_Item_PicAndContent">
+                        <div className="near_Res_Item_Picwrapper">
+                          <a className="near_Res_Item_PicLink">
+                            <img className="near_Res_Item_Pic" src={NearRes1} />
+                          </a>
+                        </div>
+                        <div className="near_Res_Item_Content">
+                          <div className="near_Res_Item_NameWrap">
+                            <a className="near_Res_Item_NameLink">
+                                    하동관
+                            </a>
+                            <span className="near_Res_Item_Rate">3.8</span>
+                          </div>
+                          {/* 식당 제목 평점 끝  */}
+                          <div className="near_Res_Item_Info">
+                            <div className="near_Res_Item_FoodCate near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">음식종류:</span>
+                              <span className="near_Res_Item_Info_Value">탕/찌개/전골</span>
+                            </div>
+                            <div className="near_Res_Item_Place near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">위치:</span>
+                              <span className="near_Res_Item_Info_Value">역삼/선릉</span>
+                            </div>
+                            <div className="near_Res_Item_Price near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label"> 가격대:</span>
+                              <span className="near_Res_Item_Info_Value">만원-2만원</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* 리스트 1개끝 */}
+                    {/* 주변식당리스트 each 시작 */}
+                    <div className="near_Res_Item">
+                      <div className="near_Res_Item_PicAndContent">
+                        <div className="near_Res_Item_Picwrapper">
+                          <a className="near_Res_Item_PicLink">
+                            <img className="near_Res_Item_Pic" src={NearRes1} />
+                          </a>
+                        </div>
+                        <div className="near_Res_Item_Content">
+                          <div className="near_Res_Item_NameWrap">
+                            <a className="near_Res_Item_NameLink">
+                                    하동관
+                            </a>
+                            <span className="near_Res_Item_Rate">3.8</span>
+                          </div>
+                          {/* 식당 제목 평점 끝  */}
+                          <div className="near_Res_Item_Info">
+                            <div className="near_Res_Item_FoodCate near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">음식종류:</span>
+                              <span className="near_Res_Item_Info_Value">탕/찌개/전골</span>
+                            </div>
+                            <div className="near_Res_Item_Place near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">위치:</span>
+                              <span className="near_Res_Item_Info_Value">역삼/선릉</span>
+                            </div>
+                            <div className="near_Res_Item_Price near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label"> 가격대:</span>
+                              <span className="near_Res_Item_Info_Value">만원-2만원</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* 리스트 1개끝 */}
+                    {/* 주변식당리스트 each 시작 */}
+                    <div className="near_Res_Item">
+                      <div className="near_Res_Item_PicAndContent">
+                        <div className="near_Res_Item_Picwrapper">
+                          <a className="near_Res_Item_PicLink">
+                            <img className="near_Res_Item_Pic" src={NearRes1} />
+                          </a>
+                        </div>
+                        <div className="near_Res_Item_Content">
+                          <div className="near_Res_Item_NameWrap">
+                            <a className="near_Res_Item_NameLink">
+                                    하동관
+                            </a>
+                            <span className="near_Res_Item_Rate">3.8</span>
+                          </div>
+                          {/* 식당 제목 평점 끝  */}
+                          <div className="near_Res_Item_Info">
+                            <div className="near_Res_Item_FoodCate near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">음식종류:</span>
+                              <span className="near_Res_Item_Info_Value">탕/찌개/전골</span>
+                            </div>
+                            <div className="near_Res_Item_Place near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">위치:</span>
+                              <span className="near_Res_Item_Info_Value">역삼/선릉</span>
+                            </div>
+                            <div className="near_Res_Item_Price near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label"> 가격대:</span>
+                              <span className="near_Res_Item_Info_Value">만원-2만원</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* 리스트 1개끝 */}
+                    {/* 주변식당리스트 each 시작 */}
+                    <div className="near_Res_Item">
+                      <div className="near_Res_Item_PicAndContent">
+                        <div className="near_Res_Item_Picwrapper">
+                          <a className="near_Res_Item_PicLink">
+                            <img className="near_Res_Item_Pic" src={NearRes1} />
+                          </a>
+                        </div>
+                        <div className="near_Res_Item_Content">
+                          <div className="near_Res_Item_NameWrap">
+                            <a className="near_Res_Item_NameLink">
+                                    하동관
+                            </a>
+                            <span className="near_Res_Item_Rate">3.8</span>
+                          </div>
+                          {/* 식당 제목 평점 끝  */}
+                          <div className="near_Res_Item_Info">
+                            <div className="near_Res_Item_FoodCate near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">음식종류:</span>
+                              <span className="near_Res_Item_Info_Value">탕/찌개/전골</span>
+                            </div>
+                            <div className="near_Res_Item_Place near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label">위치:</span>
+                              <span className="near_Res_Item_Info_Value">역삼/선릉</span>
+                            </div>
+                            <div className="near_Res_Item_Price near_Res_Item_InfoList">
+                              <span className="near_Res_Item_Info_Label"> 가격대:</span>
+                              <span className="near_Res_Item_Info_Value">만원-2만원</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* 리스트 1개끝 */}
+                  </div>
                 </section>
                 <section className="tagWithRestaurant">
-                  <span className="title">이 식당 관련 태그</span>
+                  <span className="tag_Title">이 식당 관련 태그</span>
                   <p className="tag_List">
-                      태그들
-                      1
-                      2
-                      3
-                      4
-                      4
-                      5
-                      5
-                      6
-                      6
-                      6
-                      6
-                      6
+                    <a>태그</a>
+                    <a>태그</a>
+                    <a>태그</a>
+                    <a>태그</a>
+                    <a>태그</a>
                   </p>
                 </section>
               </div>
             </div>
           </div>
+          {/* detailwrapper 위에서 끝 */}
         </div>
-        {/* detailwrapper 위에서 끝 */}
       </div>
     );
   }
