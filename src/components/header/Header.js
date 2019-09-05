@@ -8,7 +8,7 @@ class Header extends PureComponent {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
-    this.token = localStorage.getItem('apk');
+    this.token = localStorage.getItem('weple-token');
     this.state = {
       scroll: 0,
       isLogin: false,
@@ -45,7 +45,7 @@ class Header extends PureComponent {
   }
 
   tokenHandler = () => {
-    localStorage.setItem('null', '');
+    localStorage.setItem('weple-token', '');
     this.setState((prev) => (
       { isLogin: !prev.isLogin }
     ));

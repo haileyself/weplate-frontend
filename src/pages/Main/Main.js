@@ -23,20 +23,22 @@ class Main extends PureComponent {
   }
 
   componentDidMount() {
-    fetch('http://10.58.4.74:8000/main_list')
-      .then((response) => response.json())
-      .then((item) => {
-        console.log(item);
-        this.setState({
-          restaurantList: item.main_restaurant,
-        // item.main_restaurant_name.map((ele) => (
-        //   console.log(ele)
-        });
-      });
+    this.getRestaurantList();
   }
 
-  loadImg = () => (
-    this.restaurantList.map((ele) => (
+  getRestaurantList = async () => {
+    const restaurantList = await fetch('http://10.58.4.74:8000/main_list');
+    const listItem = await restaurantList.json();
+    // console.log(listItem);
+    const item = listItem.main_restaurant;
+    console.log(item);
+    this.setState({
+      restaurantList: item,
+    });
+  }
+
+  loadImg = () => {
+    const images = this.state.restaurantList.map((ele) => (
       <Link to={`/detail/${ele.restaurant__id}`}>
         <FoodImtem
           key={ele.restaurant__id}
@@ -46,20 +48,21 @@ class Main extends PureComponent {
           descript={ele.restaurant__name}
         />
       </Link>
-    ))
-  )
-
-
-  onChangeHandler = (e) => {
-    this.setState({
-      textValue: e.target.value,
-    });
+    ));
+    return images;
   }
 
-  onClickSearchButton = () => (
-    this.loadImg
-    // this.props.history.push('/detail')
-  )
+
+  // onChangeHandler = (e) => {
+  //   this.setState({
+  //     textValue: e.target.value,
+  //   });
+  // }
+
+  // onClickSearchButton = () => (
+  //   this.loadImg
+  //   // this.props.history.push('/detail')
+  // )
 
   // onClickMainImage = () => {
   //   // console.log(history);
@@ -68,20 +71,12 @@ class Main extends PureComponent {
   //   // history.push('/detail');
   // }
 
-  onKeyPressHandler = (e) => {
-    if (e.key === 'Enter') {
-      return this.loadImg;
-      // this.props.history.push('/detail');
-    }
-  }
-
-  // search = async () => {
-  //   await fetch();
-  //   this.setState((prev) => (
-  //     { valueList: [...prev] }
-  //   ));
+  // onKeyPressHandler = (e) => {
+  //   if (e.key === 'Enter') {
+  //     return this.loadImg;
+  //     // this.props.history.push('/detail');
+  //   }
   // }
-
 
   onClickHandlerMenuIcon = () => (
     this.setState((prev) => (
@@ -101,8 +96,8 @@ class Main extends PureComponent {
   // };
 
   render() {
-    console.log(this.state.textValue);
-    // console.log(this.state.restaurantList);
+    // console.log(this.state.textValue);
+    console.log(this.state.restaurantList);
     const { mode, restaurantList } = this.state;
     return (
       <div className="main-page">
@@ -182,8 +177,8 @@ class Main extends PureComponent {
               </div>
               <div className="list_contain top_list">
                 <ul className="items">
-                  {/* {this.loadImg} */}
-                  {restaurantList.map((ele) => (
+                  {restaurantList.length ? this.loadImg() : <div />}
+                  {/* {restaurantList.map((ele) => (
                     <Link to={`/detail/${ele.restaurant__id}`}>
                       <FoodImtem
                         key={ele.restaurant__id}
@@ -193,7 +188,7 @@ class Main extends PureComponent {
                         descript={ele.restaurant__name}
                       />
                     </Link>
-                  ))}
+                  ))} */}
                   {/* {filtering} */}
                 </ul>
               </div>
