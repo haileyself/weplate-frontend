@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  BrowserRouter as Router, Route, Switch, Link,
+  BrowserRouter as Router, Route, Switch, Link, Redirect,
 } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import SearchList from './SearchList';
