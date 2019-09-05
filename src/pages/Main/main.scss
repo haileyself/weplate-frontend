@@ -162,7 +162,7 @@
           // position: absolute;
           padding-right: 15px;
           padding-left: 15px;
-          text-align: left;
+          text-align: center;
           .tittle {
             line-height: 1.2em;
             font-size: 1.4rem;
@@ -172,12 +172,12 @@
         .list_contain {
           margin-top: 80px;
           // max-width: 1024px;;
-          .item {
+          .items {
             margin: 0 40px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 50px;
-            li {
+            .item {
               position: relative;
               cursor: pointer;
               .item_text {
@@ -271,11 +271,11 @@
           }
           .list_contain {
             margin-top: 20px;
-            .item {
+            .items {
               margin: 0;
               display: grid;
               grid-template-columns: repeat(1, 1fr);
-              li {
+              .item {
                 margin: 0 10px 0;
               }
               .item_img {
