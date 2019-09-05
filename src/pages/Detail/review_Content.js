@@ -14,16 +14,16 @@ const ReviewContent = (props) => (
             <img className="review_Item_UserPic" src={Profile} alt="user profile" />
           </div>
           <span className="review_Item_UserNickName">
-        쀼님
+            {props.comment.user__user_id}
           </span>
         </div>
         <div className="review_Item_Content">
           <div className="review_Item_TextWrap">
-            <span className="review_Item_ReviewText">
-            리뷰작성날짜
+            <span className="review_Item_ReviewDate">
+              {props.comment.created_at}
             </span>
             <p className="review_Item_ReviewText">
-            진짜리뷰
+              {props.comment.content}
             </p>
           </div>
         </div>

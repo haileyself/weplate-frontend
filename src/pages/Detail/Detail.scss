@@ -315,6 +315,7 @@
     border-radius: 25px;
     border: none;
     padding: 7px 10px;
+    cursor: pointer;
   }
 
   .user_Review {
@@ -380,9 +381,16 @@
     border-bottom: 1px solid #dbdbdb;
   }
 
-  .review_Item_ReviewText {
+  .review_Item_ReviewDate {
     font-size: 14px;
     color: #9b9b9b;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .review_Item_ReviewText {
+    font-size: 14px;
+    color: black;
     margin-bottom: 10px;
     display: block;
   }
