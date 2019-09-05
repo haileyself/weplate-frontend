@@ -34,8 +34,20 @@ class Login extends React.Component {
 
   onClickHandleKakaoLogin = () => {
     this.state.Kakao.Auth.login({
-      success: (response) => {
-        console.log(response);
+      success: (kakaotoken) => {
+        console.log(kakaotoken);
+        fetch('http://10.58.7.15:8000/users/kakaologin', {
+          headers: {
+            Authorization: kakaotoken.access_token,
+          },
+        }).then((response) => response.json())
+          .then((response) => {
+            console.log(response);
+            if (response.access_token) {
+              localStorage.setItem('weple-token', response.access_token);
+              this.props.history.push('/');
+            }
+          });
       },
     });
   }
