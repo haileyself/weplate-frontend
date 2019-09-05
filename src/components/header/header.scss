@@ -311,3 +311,14 @@
   //   background-image: url('https://mp-seoul-image-production-s3.mangoplate.com/web/resources/mangoplate-logo-horizontal.svg');
   // }
 }
+
+.tempLogo {
+  width: 100px;
+}
+
+.header_menuitem_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

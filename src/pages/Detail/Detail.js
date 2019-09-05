@@ -1,7 +1,7 @@
 import React from 'react';
 import './Detail.scss';
 import { withRouter } from 'react-router-dom';
-import Header from '../../components/header/Header';
+import SubHeader from '../../components/header/SubHeader';
 import ReviewContent from './review_Content';
 
 import Food1 from './food1.jpg';
@@ -100,9 +100,7 @@ class Detail extends React.Component {
       return (
         <div className="detail_page">
           <div className="detail_wrapper">
-            <header className="detail_header">
-              <Header />
-            </header>
+            <SubHeader />
             <aside className="detail_Photolist">
               <div className="photoList">
                 <img className="photoItem" src={Food1} alt="음식사진1" />
