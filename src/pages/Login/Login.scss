@@ -151,4 +151,13 @@ $break-mobile: 350px;
     opacity: 0.7;
     transition: 0.7s;
   }
+
+  .kakao_login_btn {
+    width: 222px;
+    background-image: url('https://kauth.kakao.com/public/widget/login/kr/kr_02_medium.png');
+    height: 50px;
+    image {
+      width: 100%;
+    }
+  }
 }

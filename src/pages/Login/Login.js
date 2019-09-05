@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.scss';
 import { Link, withRouter } from 'react-router-dom';
-
+// import kakao from 'react-kakao-login';
 import Logo from './logo.png';
 
 class Login extends React.Component {
@@ -9,11 +9,48 @@ class Login extends React.Component {
     super();
 
     this.state = {
-      name: '',
       email: '',
       password: '',
+      Kakao: {},
     };
   } // end constructor
+
+
+  componentDidMount() {
+    window.Kakao.init('f8649f9322f32e7bc59c64a23e9ae213');
+    window.Kakao.Auth.createLoginButton({
+      container: '#kakao_login_btn',
+      success(authObj) {
+        alert(JSON.stringify(authObj));
+        // console.log(authObj);
+      },
+      fail(err) {
+        alert(JSON.stringify(err));
+      },
+    });
+    this.setState({
+      Kakao: window.Kakao,
+    });
+  }
+
+  onClickHandleKakaoLogin = () => {
+    this.state.Kakao.Auth.login({
+      success: (kakaotoken) => {
+        fetch('http://10.58.7.15:8000/users/kakaologin', {
+          headers: {
+            Authorization: kakaotoken.access_token,
+          },
+        }).then((response) => response.json())
+          .then((response) => {
+            if (response.access_token) {
+              localStorage.setItem('weple-token', response.access_token);
+              this.props.history.push('/');
+            }
+          });
+      },
+    });
+  }
+
 
   clickLoginBtn = async () => {
     if (this.state.email.length === 0) {
@@ -37,7 +74,6 @@ class Login extends React.Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         if (response.user_access_token) {
           localStorage.setItem('weple-token', response.user_access_token);
           this.props.history.push('/');
@@ -90,6 +126,7 @@ class Login extends React.Component {
                     <input type="checkbox" className="login_check" />
                     <label>Remember me</label>
                   </div>
+                  <div id="kakao_login_btn" onClick={this.onClickHandleKakaoLogin} />
                 </div>
               </div>
             </article>

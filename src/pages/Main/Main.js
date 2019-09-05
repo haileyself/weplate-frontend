@@ -1,10 +1,15 @@
 import React, { PureComponent } from 'react';
+import {
+  BrowserRouter as Router, Route, Switch, Link, Redirect,
+} from 'react-router-dom';
 import Header from '../../components/header/Header';
+import SearchList from './SearchList';
 import FoodImtem from './FoodItem';
 import FoodDatas from './FoodDatas';
 import Footer from '../../components/footer/Footer';
 import './main.scss';
-import logo from '../../imges/mango_Logo.jpg';
+import logoOrange from '../../imges/logo-orange.png';
+import logoWhite from '../../imges/logo-white.png';
 import logo2 from '../../imges/logo2.svg';
 
 class Main extends PureComponent {
@@ -12,16 +17,66 @@ class Main extends PureComponent {
     super(props);
     this.state = {
       mode: false,
-      value: '',
-
+      textValue: '',
+      restaurantList: [],
     };
   }
 
-  onChangeHandler = (e) => {
+  componentDidMount() {
+    this.getRestaurantList();
+  }
+
+  getRestaurantList = async () => {
+    const restaurantList = await fetch('http://10.58.4.74:8000/main_list');
+    const listItem = await restaurantList.json();
+    // console.log(listItem);
+    const item = listItem.main_restaurant;
+    console.log(item);
     this.setState({
-      value: e.target.value,
+      restaurantList: item,
     });
   }
+
+  loadImg = () => {
+    const images = this.state.restaurantList.map((ele) => (
+      <Link to={`/detail/${ele.restaurant__id}`}>
+        <FoodImtem
+          key={ele.restaurant__id}
+          id={ele.restaurant__id}
+          src={ele.image}
+          url={ele.url}
+          descript={ele.restaurant__name}
+        />
+      </Link>
+    ));
+    return images;
+  }
+
+
+  // onChangeHandler = (e) => {
+  //   this.setState({
+  //     textValue: e.target.value,
+  //   });
+  // }
+
+  // onClickSearchButton = () => (
+  //   this.loadImg
+  //   // this.props.history.push('/detail')
+  // )
+
+  // onClickMainImage = () => {
+  //   // console.log(history);
+  //   // console.log(typeof e.target.id);
+  //   // fetch(`http://10.58.4.74:8000/main_list/${Number(e.target.id)}`);
+  //   // history.push('/detail');
+  // }
+
+  // onKeyPressHandler = (e) => {
+  //   if (e.key === 'Enter') {
+  //     return this.loadImg;
+  //     // this.props.history.push('/detail');
+  //   }
+  // }
 
   onClickHandlerMenuIcon = () => (
     this.setState((prev) => (
@@ -41,19 +96,79 @@ class Main extends PureComponent {
   // };
 
   render() {
-    console.log('온체인지 될때마다 출력!');
+    // console.log(this.state.textValue);
+    console.log(this.state.restaurantList);
+    const { mode, restaurantList } = this.state;
     return (
       <div className="main-page">
         {/* {메인 헤더부분} */}
         <Header
-          logo={logo}
-          mode={this.state.mode}
+          logoOrange={logoOrange}
+          logoWhite={logoWhite}
+          mode={mode}
           onClickEvent={this.onClickHandlerMenuIcon}
-          onChangeEvent={this.onChangeHandler}
         />
         {/* {메인 리스트부분 } */}
         <main className="main">
-          <article className="main_article">
+          <article className="main_article main_padding">
+            <header className="main_header">
+              <p className="main_header_title">솔릭한 리뷰 믿을 수 있는 평점!</p>
+              <h1 className="main_header_title">WE 플레이트</h1>
+              <fieldset className="main_search">
+                <legend>전체 검색</legend>
+                <label className="search_word" htmlFor="m-s">
+                  <span className="icon">검색 :</span>
+                  <input
+                    type="text"
+                    className="home_searchInput"
+                    id="m-s"
+                    placeholder="지역, 식당 또는 음식"
+                    autoComplete="off"
+                    name="m-s"
+                    onChange={this.onChangeHandler}
+                    onKeyPress={this.onKeyPressHandler}
+                  />
+                  <span className="clear_btn">CLEAR</span>
+                </label>
+                <input
+                  className="btn_search"
+                  type="submit"
+                  name="search"
+                  value="검색"
+                  onClick={this.onClickSearchButton}
+                />
+              </fieldset>
+              {/* {textValue.length ? textValue.map((ele) => (
+                <SearchList des={ele.des} />
+              )) : ''} */}
+              <aside className="shortcut_app type_main">
+                <a className="btn inbound only_desktop" href="/">
+                  <img
+                    src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/nf58dxcb-7ikpwam.png"
+                    alt="최대 할인 바로 이동"
+                  />
+                </a>
+                <button type="button" className="btn android">
+                  <a href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
+                    {/* <Link to={`/main/${'play.google.com'}`}> */}
+                    <img
+                      src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bzdlmp2toaxrdjqg.png"
+                      alt="android market button"
+                      width="180px"
+                    />
+                    {/* </Link> */}
+                  </a>
+                </button>
+                <button type="button" className="btn ios">
+                  <a href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/f7eokfaszt4gpkh6.svg?v=1"
+                      alt="app store button"
+                    />
+                  </a>
+                </button>
+              </aside>
+            </header>
             <section className="main_article_section">
               <div className="tittle_wrap">
                 <div className="tittle">
@@ -61,22 +176,21 @@ class Main extends PureComponent {
                 </div>
               </div>
               <div className="list_contain top_list">
-                <ul className="item ">
-                  {FoodDatas.map((ele) => (
-                    ele.des.includes(this.state.value)
-                      ? (
-
-                        <FoodImtem
-                          key={ele.id}
-                          src={ele.img}
-                          url={ele.url}
-                          descript={ele.des}
-                        />
-                      ) : ''
-                  ))}
+                <ul className="items">
+                  {restaurantList.length ? this.loadImg() : <div />}
+                  {/* {restaurantList.map((ele) => (
+                    <Link to={`/detail/${ele.restaurant__id}`}>
+                      <FoodImtem
+                        key={ele.restaurant__id}
+                        id={ele.restaurant__id}
+                        src={ele.image}
+                        url={ele.url}
+                        descript={ele.restaurant__name}
+                      />
+                    </Link>
+                  ))} */}
                   {/* {filtering} */}
                 </ul>
-
               </div>
             </section>
           </article>
