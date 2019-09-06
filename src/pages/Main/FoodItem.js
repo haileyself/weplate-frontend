@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { withRouter } from 'react-router-dom';
 
+import { withRouter } from 'react-router-dom';
 
 class FoodImtem extends PureComponent {
   constructor(props) {

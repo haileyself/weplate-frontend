@@ -1,17 +1,10 @@
 .detail_page {
+  padding: 0 6px;
+
   .detail_wrapper {
     border: 3px solid red;
   }
 
-  .detail_header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 61px;
-    border-bottom: 1px solid #dbdbdb;
-    background-color: red;
-  }
   .detail_Photolist {
     width: 100%;
     height: 340px;
@@ -25,7 +18,7 @@
     opacity: 1;
     display: block;
     position: relative;
-    width: 3310px;
+    width: 100%;
     left: 0px;
     overflow: hidden;
   }
@@ -43,21 +36,17 @@
     flex-direction: column;
     // border: 2px solid green;
     line-height: 100%;
-    width: calc(100% - 400px);
     margin-top: 20px;
-  }
-
-  .restaurant_detail {
-    border-bottom: 1px solid #e9e9e9;
+    padding: 20px;
+    //제일 큰 디브에 20 패딩주기
+    width: 65%;
   }
 
   .column_aside {
-    position: relative;
-    float: right;
-    width: 400px;
-    background-color: #f6f6f6;
-    border: 1px solid greenyellow;
-    margin-right: 0;
+    // background-color: #f6f6f6;
+    // border: 1px solid greenyellow;
+    width: 34%;
+    padding: 20px;
   }
 
   .restaurant_header {
@@ -230,7 +219,7 @@
     text-align: right;
     color: rgba(79, 79, 79, 0.6);
     line-height: 100%;
-    border-bottom: 1px solid #e9e9e9;
+    border-bottom: 2px solid #e9e9e9;
     padding-bottom: 20px;
   }
   // .review_write_btn {
@@ -296,7 +285,33 @@
     margin: 0 auto;
     width: 800px;
   }
+  .user_Review_Wrap {
+    display: block;
+  }
 
+  .user_Text {
+    width: 100%;
+    height: 108px;
+  }
+
+  .user_Review_BtnBox {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+  }
+
+  .user_Review_Btn {
+    background-color: #ff792a;
+    color: #fff;
+    border-radius: 25px;
+    border: none;
+    padding: 7px 10px;
+    cursor: pointer;
+  }
+
+  .user_Review {
+    width: 100%;
+  }
   .restaurantRvHeader {
     margin-bottom: 14px;
     display: flex;
@@ -318,18 +333,156 @@
     background-color: transparent;
     display: inline;
     color: #9b9b9b;
-    border-right: 1px solid #9b9b9b;
   }
+
+  .restaurant_RvList_filterItem button:active {
+    color: #ff792a;
+  }
+
+  .restaurant_RvList_filterItem::after {
+    content: '|';
+    margin: 0 7px;
+    color: #9b9b9b;
+  }
+
   button span {
     margin: 0;
   }
 
+  .restaurantRvList {
+    // border: 1px solid black;
+    padding: 10px;
+  }
+
+  .icon_SmallPen {
+    width: 9px;
+    height: 8px;
+  }
   .detail_map {
     width: 100%;
     cursor: pointer;
     border: 1px solid red;
+
     height: 328px;
     display: block;
+  }
+
+  .review_Item {
+    position: relative;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  .review_Item_ReviewDate {
+    font-size: 14px;
+    color: #9b9b9b;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .review_Item_ReviewText {
+    font-size: 14px;
+    color: black;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .review_Item_User {
+    display: flex;
+    padding-bottom: 10px;
+  }
+
+  .review_Item_UserInfoWrap {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 35px 0 8px;
+  }
+
+  .review_Item_UserPicWrap {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #dbdbdb;
+  }
+
+  .review_Item_UserPic {
+    width: 100%;
+    opacity: 1;
+  }
+
+  .userReviewCount {
+    margin-right: 2px;
+    font-size: 10px;
+    color: #cbcbcb;
+    display: inline;
+  }
+
+  .review_Item_UserNickName {
+    margin-bottom: 2px;
+    font-size: 13px;
+    line-height: 1.3;
+    text-align: center;
+    word-break: break-all;
+    color: #555555;
+  }
+
+  .review_Item_Content {
+    width: 605px;
+  }
+
+  .near_Res_Item_PicAndContent {
+    display: flex;
+  }
+
+  .near_Res_Item_Picwrapper {
+    width: 103px;
+    height: 103px;
+  }
+
+  .near_Res_Item_PicLink {
+    width: 100%;
+  }
+
+  .near_Res_Item_Picwrapper img {
+    width: 100%;
+  }
+
+  .near_Res_Item_Content {
+    margin-left: 12px;
+  }
+
+  .near_Res_Item_NameLink {
+    font-size: 18px;
+    color: #555555;
+  }
+
+  .near_Res_Item_Rate {
+    font-size: 19px;
+    color: #e9e9e9;
+    margin-left: 5px;
+  }
+
+  .review_Item_TextWrap {
+    padding: 10px 0px;
+  }
+
+  .review_Item_Content p {
+    color: black;
+    word-break: break-all;
+  }
+
+  .review_Item_Rate {
+    margin-left: auto;
+  }
+
+  .review_Item_RateText {
+    font-size: 15px;
+    color: #ff792a;
+  }
+
+  .tagWithRestaurant {
+    margin-top: 20px;
   }
 
   ol,
@@ -337,17 +490,23 @@
   li {
     list-style: none;
   }
-  .review_Item {
-    position: relative;
-    border-bottom: 1px solid #dbdbdb;
+
+  a:link,
+  a:visited {
+    text-decoration: none;
   }
 
-  .title_Review,
-  .title_Review_count {
-    border: 0 none;
+  .title_Review {
     font-size: 18px;
     line-height: 1.2;
     color: #4f4f4f;
+    font-weight: normal;
+  }
+
+  .title_Review_count {
+    color: #7f7f7f;
+    font-size: 18px;
+    line-height: 1.2;
     font-weight: normal;
   }
 
@@ -355,31 +514,64 @@
     width: 800px;
     margin: 0 auto;
   }
-  .column_content section {
+  .restaurant_detail {
     width: 800px;
     margin: 0 auto;
   }
-  .aside_inner {
-    box-sizing: border-box;
-    padding: 0 24px;
-    width: 400px;
-    margin: 0 auto;
-    border: 1px solid red;
-  }
+
   .near_Res {
-    border: 1px solid green;
+    //   border: 1px solid green;
+  }
+
+  .near_Res_Title,
+  .tag_Title {
+    color: #ff792a;
+    font-size: 1.65rem;
+    font-weight: normal;
   }
 
   .near_Res_List {
-    border: 1px solid yellow;
+    margin-top: 17px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .near_Res_Item {
-    border: 1px solid red;
+    padding: 15px 10px;
+    width: 100%;
+    border-bottom: 1px solid #dbdbab;
   }
+
+  .near_Res_Item_InfoList {
+    margin-top: 5px;
+  }
+
+  .near_Res_Item_Info_Label {
+    color: #9b9b9b;
+    margin-right: 2px;
+    font-size: 11px;
+  }
+
+  .near_Res_Item_Info_Value {
+    color: #555555;
+    font-size: 11px;
+  }
+
   .tag_List {
-    border: 1px solid black;
-    padding-top: 14px;
+    padding: 14px 0px;
+    line-height: 30px;
+    margin-top: 10px;
+  }
+
+  .tag_List a {
+    border: 1px solid #cbcbcb;
+    border-radius: 50px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 5px;
+    background-color: #fff;
+    color: #6a6a6a;
   }
 
   .other_Res {
@@ -390,7 +582,7 @@
     width: 320px;
     height: 340px;
     float: left;
-    border-left: 6px solid #fff;
+    border-right: 6px solid #fff;
     background-size: cover;
     display: block;
     position: relative;

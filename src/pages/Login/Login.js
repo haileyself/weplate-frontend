@@ -15,6 +15,7 @@ class Login extends React.Component {
     };
   } // end constructor
 
+
   componentDidMount() {
     window.Kakao.init('f8649f9322f32e7bc59c64a23e9ae213');
     window.Kakao.Auth.createLoginButton({
@@ -35,14 +36,12 @@ class Login extends React.Component {
   onClickHandleKakaoLogin = () => {
     this.state.Kakao.Auth.login({
       success: (kakaotoken) => {
-        console.log(kakaotoken);
         fetch('http://10.58.7.15:8000/users/kakaologin', {
           headers: {
             Authorization: kakaotoken.access_token,
           },
         }).then((response) => response.json())
           .then((response) => {
-            console.log(response);
             if (response.access_token) {
               localStorage.setItem('weple-token', response.access_token);
               this.props.history.push('/');
@@ -51,6 +50,7 @@ class Login extends React.Component {
       },
     });
   }
+
 
   clickLoginBtn = async () => {
     if (this.state.email.length === 0) {
@@ -74,7 +74,6 @@ class Login extends React.Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         if (response.user_access_token) {
           localStorage.setItem('weple-token', response.user_access_token);
           this.props.history.push('/');
@@ -94,7 +93,6 @@ class Login extends React.Component {
     };
 
     render() {
-      console.log(this.state.Kakao);
       return (
         <div className="login_page">
           <div className="login_container">
@@ -108,6 +106,7 @@ class Login extends React.Component {
                   <div className="login_subtitle">Please enter your Email</div>
                 </div>
                 <div className="login_form">
+
                   <input
                     onChange={this.setEmail}
                     className="login_input"
@@ -127,10 +126,7 @@ class Login extends React.Component {
                     <input type="checkbox" className="login_check" />
                     <label>Remember me</label>
                   </div>
-                  <div
-                    id="kakao_login_btn"
-                    onClick={this.onClickHandleKakaoLogin}
-                  />
+                  <div id="kakao_login_btn" onClick={this.onClickHandleKakaoLogin} />
                 </div>
               </div>
             </article>
