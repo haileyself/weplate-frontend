@@ -2,7 +2,7 @@ import React from 'react';
 import './Login.scss';
 import { Link, withRouter } from 'react-router-dom';
 // import kakao from 'react-kakao-login';
-import Logo from './logo.png';
+import Logo from '../../imges/logo-orange.png';
 
 window.Kakao.init('f8649f9322f32e7bc59c64a23e9ae213');
 class Login extends React.Component {

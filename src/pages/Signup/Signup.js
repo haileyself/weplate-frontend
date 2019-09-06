@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Signup.scss';
-import {Link, withRouter } from 'react-router-dom';
-import Logo from './logo.png';
+import { Link, withRouter } from 'react-router-dom';
+import Logo from '../../imges/logo-orange.png';
 
 class Signup extends React.Component {
   constructor() {

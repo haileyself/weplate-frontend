@@ -53,16 +53,17 @@ class Main extends PureComponent {
   }
 
 
-  // onChangeHandler = (e) => {
-  //   this.setState({
-  //     textValue: e.target.value,
-  //   });
-  // }
+  onChangeHandler = (e) => {
+    this.setState({
+      textValue: e.target.value,
+    });
+  }
 
-  // onClickSearchButton = () => (
-  //   this.loadImg
-  //   // this.props.history.push('/detail')
-  // )
+  onClickSearchButton = async () => {
+    const result = await fetch(`https://localhost:8000/restaurant?=data=${this.state.textValue}`);
+    // this.props.history.push('/detail')
+    return result;
+  }
 
   // onClickMainImage = () => {
   //   // console.log(history);
@@ -71,12 +72,13 @@ class Main extends PureComponent {
   //   // history.push('/detail');
   // }
 
-  // onKeyPressHandler = (e) => {
-  //   if (e.key === 'Enter') {
-  //     return this.loadImg;
-  //     // this.props.history.push('/detail');
-  //   }
-  // }
+  onKeyPressHandler = async (e) => {
+    if (e.key === 'Enter') {
+      const result = await fetch(`https://localhost:8000/restaurant?=data=${this.state.textValue}`);
+      // this.props.history.push('/detail')
+      return result;
+    }
+  }
 
   onClickHandlerMenuIcon = () => (
     this.setState((prev) => (
@@ -96,8 +98,8 @@ class Main extends PureComponent {
   // };
 
   render() {
-    // console.log(this.state.textValue);
-    console.log(this.state.restaurantList);
+    console.log(this.state.textValue);
+    // console.log(this.state.restaurantList);
     const { mode, restaurantList } = this.state;
     return (
       <div className="main-page">
