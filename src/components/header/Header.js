@@ -105,13 +105,13 @@ class Header extends PureComponent {
               onClick={this.tokenHandler}
             >
               <Link to="/" className="text_color">
-                <sapn>로그아웃</sapn>
+                <span>로그아웃</span>
               </Link>
             </li>
           )
             : (
               <li className="header_menuitem underline-from-left">
-                <Link to="./login" className="text_color">
+                <Link to="/login" className="text_color">
                   <span>로그인</span>
                 </Link>
               </li>
@@ -139,10 +139,10 @@ class Header extends PureComponent {
     );
   }
 }
-Header.propTypes = {
-  onClickEvent: PropTypes.isRequired,
-  mode: PropTypes.string.isRequired,
-  logoOrange: PropTypes.string.isRequired,
-  logoWhite: PropTypes.string.isRequired,
-};
+// Header.propTypes = {
+//   onClickEvent: PropTypes.isRequired,
+//   mode: PropTypes.string.isRequired,
+//   logoOrange: PropTypes.string.isRequired,
+//   logoWhite: PropTypes.string.isRequired,
+// };
 export default Header;

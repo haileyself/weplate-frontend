@@ -4,19 +4,18 @@ import { Link, withRouter } from 'react-router-dom';
 // import kakao from 'react-kakao-login';
 import Logo from './logo.png';
 
+window.Kakao.init('f8649f9322f32e7bc59c64a23e9ae213');
 class Login extends React.Component {
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
       email: '',
       password: '',
       Kakao: {},
     };
-  } // end constructor
+  }
 
   componentDidMount() {
-    window.Kakao.init('f8649f9322f32e7bc59c64a23e9ae213');
     window.Kakao.Auth.createLoginButton({
       container: '#kakao_login_btn',
       success(authObj) {
@@ -62,7 +61,7 @@ class Login extends React.Component {
       return;
     }
 
-    fetch('http://10.58.7.15:8003/users/login', {
+    fetch('http://10.58.7.15:8000/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -122,11 +121,11 @@ class Login extends React.Component {
                     placeholder="Your Password"
                     value={this.state.password}
                   />
-                  <input type="button" className="login_btn" value="Login" onClick={this.clickLoginBtn} />
                   <div className="login_checkbox">
                     <input type="checkbox" className="login_check" />
                     <label>Remember me</label>
                   </div>
+                  <input type="button" className="login_btn" value="Login" onClick={this.clickLoginBtn} />
                   <div
                     id="kakao_login_btn"
                     onClick={this.onClickHandleKakaoLogin}
