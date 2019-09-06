@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Signup.scss';
-import Logo from './logo.png';
 import {Link, withRouter } from 'react-router-dom';
+import Logo from './logo.png';
 
 class Signup extends React.Component {
   constructor() {
@@ -11,7 +11,7 @@ class Signup extends React.Component {
       email: '',
       password: '',
       repassword: '',
-      name: ''
+      name: '',
     };
   }
 
@@ -20,7 +20,7 @@ class Signup extends React.Component {
       email,
       password,
       name,
-      repassword
+      repassword,
     } = this.state;
 
     if (name.length === 0) {
@@ -48,7 +48,7 @@ class Signup extends React.Component {
       return;
     }
 
-    fetch('http://10.58.7.15:8003/users/signup', {
+    fetch('http://10.58.7.15:8000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,7 +69,6 @@ class Signup extends React.Component {
           alert(response.error_message);
         }
       });
-
   };
 
   setName = (e) => {
@@ -94,7 +93,7 @@ class Signup extends React.Component {
         <article className="signup-content">
           <div className="input-wrap">
             <div className="signup-header">
-              <Link to="/"><img className="signup-logo" src={Logo} alt="logo_img"></img></Link>
+              <Link to="/"><img className="signup-logo" src={Logo} alt="logo_img" /></Link>
             </div>
             <div className="signup-info">
               <div className="signup-title">Register.</div>
@@ -129,7 +128,7 @@ class Signup extends React.Component {
                 value={this.state.repassword}
                 maxLength="8"
               />
-              <input type="button" className="signup-btn" value="Register"  onClick={this.clickSignupBtn} />
+              <input type="button" className="signup-btn" value="Register" onClick={this.clickSignupBtn} />
             </div>
           </div>
         </article>
