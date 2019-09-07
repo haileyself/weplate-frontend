@@ -27,7 +27,7 @@ class Main extends PureComponent {
   }
 
   getRestaurantList = async () => {
-    const restaurantList = await fetch('http://10.58.4.74:8000/main_list');
+    const restaurantList = await fetch('http://10.58.1.237:8000/main_list');
     const listItem = await restaurantList.json();
     // console.log(listItem);
     const item = listItem.main_restaurant;
@@ -60,8 +60,9 @@ class Main extends PureComponent {
   }
 
   onClickSearchButton = async () => {
-    const result = await fetch(`https://localhost:8000/restaurant?=data=${this.state.textValue}`);
-    // this.props.history.push('/detail')
+    const result = await fetch(`http://10.58.1.237:8000/search?data=${this.state.textValue}`);
+    const result2 = await result.json();
+    this.props.history.push(`/detail/${result2.restaurant_info.id}`);
     return result;
   }
 
@@ -74,8 +75,9 @@ class Main extends PureComponent {
 
   onKeyPressHandler = async (e) => {
     if (e.key === 'Enter') {
-      const result = await fetch(`https://localhost:8000/restaurant?=data=${this.state.textValue}`);
-      // this.props.history.push('/detail')
+      const result = await fetch(`http://10.58.1.237:8000/search?data=${this.state.textValue}`);
+      const result2 = await result.json();
+      this.props.history.push(`/detail/${result2.restaurant_info.id}`);
       return result;
     }
   }
