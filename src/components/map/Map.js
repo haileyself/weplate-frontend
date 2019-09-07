@@ -9,12 +9,24 @@ class Map extends PureComponent {
   componentDidMount = async () => {
     const mapContainer = this.ref.current;
 
+    const latlng = await fetch('http://10.58.1.237:8000/restaurant/7');
+    const latlng2 = await latlng.json();
+    // console.log(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude);
+
     const mapOption = {
-      center: new window.kakao.maps.LatLng(37.57413, 127.01757),
-      level: 4,
+      center: new window.kakao.maps.LatLng(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude),
+      level: 3,
     };
 
     const map = new window.kakao.maps.Map(mapContainer, mapOption);
+
+    const markerPosition = new window.kakao.maps.LatLng(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude);
+
+    const marker = new window.kakao.maps.Marker({
+      position: markerPosition,
+    });
+
+    marker.setMap(map);
 
     // console.log(this.ref.current);
     // new window.kakao.maps.Map(this.ref.current, {
