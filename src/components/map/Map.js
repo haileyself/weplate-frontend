@@ -7,7 +7,7 @@ class Map extends PureComponent {
   }
 
   componentDidMount = async () => {
-    const mapContainer = document.getElementById('map');
+    const mapContainer = this.ref.current;
 
     const mapOption = {
       center: new window.kakao.maps.LatLng(37.57413, 127.01757),
@@ -31,7 +31,7 @@ class Map extends PureComponent {
     return (
       <>
         <div className="map_container" style={{ width: '400px' }}>
-          <div ref={this.ref} className="map_style" id="map" style={{ width: '100%', height: '350px' }} />
+          <div ref={this.ref} style={{ width: '100%', height: '350px' }} />
         </div>
       </>
     );
