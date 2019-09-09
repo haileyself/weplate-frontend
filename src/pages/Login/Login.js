@@ -35,7 +35,7 @@ class Login extends React.Component {
   onClickHandleKakaoLogin = () => {
     this.state.Kakao.Auth.login({
       success: (kakaotoken) => {
-        fetch('http://10.58.7.15:8000/users/kakaologin', {
+        fetch('http://54.180.158.61:8000/kakaologin', {
           headers: {
             Authorization: kakaotoken.access_token,
           },
@@ -61,7 +61,7 @@ class Login extends React.Component {
       return;
     }
 
-    fetch('http://10.58.7.15:8000/users/login', {
+    fetch('http://54.180.158.61:8000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ class Login extends React.Component {
                     <label>Remember me</label>
                   </div>
                   <input type="button" className="login_btn" value="Login" onClick={this.clickLoginBtn} />
-                 
+
 
                   <div id="kakao_login_btn" onClick={this.onClickHandleKakaoLogin} />
 

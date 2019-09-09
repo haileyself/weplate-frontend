@@ -48,7 +48,7 @@ class Signup extends React.Component {
       return;
     }
 
-    fetch('http://10.58.7.15:8000/users/signup', {
+    fetch('http://54.180.158.61:8000/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
