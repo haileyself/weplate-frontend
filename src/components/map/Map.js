@@ -9,7 +9,7 @@ class Map extends PureComponent {
   componentDidMount = async () => {
     const mapContainer = this.ref.current;
 
-    const latlng = await fetch('http://10.58.1.237:8000/restaurant/7');
+    const latlng = await fetch('http://54.180.158.61:8000/map/1');
     const latlng2 = await latlng.json();
     // console.log(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude);
 
