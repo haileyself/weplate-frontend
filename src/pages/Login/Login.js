@@ -9,8 +9,8 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      user_email: '',
+      user_password: '',
       Kakao: {},
     };
   }
@@ -24,7 +24,7 @@ class Login extends React.Component {
         // console.log(authObj);
       },
       fail(err) {
-        alert(JSON.stringify(err));
+        // alert(JSON.stringify(err));
       },
     });
     this.setState({
@@ -35,6 +35,7 @@ class Login extends React.Component {
   onClickHandleKakaoLogin = () => {
     this.state.Kakao.Auth.login({
       success: (kakaotoken) => {
+        console.log(kakaotoken);
         fetch('http://54.180.158.61:8000/kakaologin', {
           headers: {
             Authorization: kakaotoken.access_token,
