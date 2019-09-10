@@ -149,6 +149,9 @@
         }
       }
     }
+    a {
+      margin-bottom: 7px;
+    }
   }
 
   .header_menuicon {
@@ -278,6 +281,7 @@
     .header_menulist {
       display: none;
     }
+
     .header_menuicon {
       margin-left: auto;
 
@@ -314,6 +318,13 @@
 
 .tempLogo {
   width: 100px;
+  margin: 0 30px 0 10px;
+}
+
+.small_search_Icon {
+  font-size: 22px;
+  padding-right: 10px;
+  color: #dbdbdb;
 }
 
 .header_menuitem_wrap {
@@ -321,4 +332,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.header_menulist span {
+  color: #888888;
+}
+
+.header_menulist span:hover {
+  color: #ff7100;
 }
