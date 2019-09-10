@@ -1,3 +1,4 @@
+
 import React, { PureComponent } from 'react';
 
 class Map extends PureComponent {
@@ -7,26 +8,27 @@ class Map extends PureComponent {
   }
 
   componentDidMount = async () => {
+    // console.log(window.kakao);
     const mapContainer = this.ref.current;
 
-    const latlng = await fetch(`http://54.180.158.61:8000/restaurant/${this.props.info}`);
-    const latlng2 = await latlng.json();
-    console.log(latlng2);
+    // const latlng = await fetch(`http://54.180.158.61:8000/restaurant/${this.props.info}`);
+    // const latlng2 = await latlng.json();
 
-    const mapOption = {
-      center: new window.kakao.maps.LatLng(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude),
-      level: 3,
-    };
+    // // console.log(window.kakao.maps);
+    // const mapOption = {
+    //   center: new window.kakao.maps.LatLng(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude),
+    //   level: 3,
+    // };
 
-    const map = new window.kakao.maps.Map(mapContainer, mapOption);
+    // const map = new window.kakao.maps.Map(mapContainer, mapOption);
 
-    const markerPosition = new window.kakao.maps.LatLng(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude);
+    // const markerPosition = new window.kakao.maps.LatLng(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude);
 
-    const marker = new window.kakao.maps.Marker({
-      position: markerPosition,
-    });
+    // const marker = new window.kakao.maps.Marker({
+    //   position: markerPosition,
+    // });
 
-    marker.setMap(map);
+    // marker.setMap(map);
 
     // console.log(this.ref.current);
     // new window.kakao.maps.Map(this.ref.current, {
@@ -40,7 +42,6 @@ class Map extends PureComponent {
   }
 
   render() {
-    // console.log(this.props);
     return (
       <>
         <div className="map_container" style={{ width: '100%' }}>
