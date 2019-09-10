@@ -1,45 +1,85 @@
-.detail_page {
-  padding: 0 6px;
+@import '../../style/mediascreen.scss';
 
+.detail_page {
   .detail_wrapper {
-    border: 3px solid red;
+    // border: 3px solid red;
   }
 
   .detail_Photolist {
-    width: 100%;
-    height: 340px;
     border-bottom: solid 6px #fff;
-    display: block;
-    overflow: hidden;
+    // overflow-x: auto;
+    // overflow-y: hidden;
     margin-top: 61px;
+    display: flex;
   }
 
   .photoList {
     opacity: 1;
-    display: block;
     position: relative;
-    width: 100%;
-    left: 0px;
+    display: flex;
     overflow: hidden;
+    // left: 0px;
+    // overflow-x: auto;
+    // height: 340px;
+    width: 100%;
+
+    @media screen and (max-width: $break-tablet) {
+      height: 180px;
+      overflow-x: auto;
+    }
+    // @media screen and (max-width: $break-phone) {
+    //   // height: 180px;
+    // }
+
+    .photoItem {
+      border-left: 6px solid #fff;
+      height: 340px;
+      width: 360px;
+      // min-width: 300px;
+      overflow: hidden;
+      display: inline-block;
+
+      @media screen and (max-width: $break-tablet) {
+        width: 170px;
+        height: 180px;
+        border-left: 3px solid #fff;
+      }
+      @media screen and (max-width: $break-phone) {
+        border-left: 2px solid #fff;
+        padding: 0;
+      }
+    }
+  }
+  .photoItem1 {
+    background-image: url('./food1.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: none;
   }
 
   .detail_contentWrapper {
     display: flex;
     float: none;
+    @media screen and (max-width: $break-tablet) {
+      flex-direction: column;
+    }
   }
 
-  .phtoList img {
-    width: 300px;
-  }
   .column_content {
     display: flex;
     flex-direction: column;
     // border: 2px solid green;
     line-height: 100%;
     margin-top: 20px;
-    padding: 20px;
+    padding: 20px 30px 20px 30px;
     //제일 큰 디브에 20 패딩주기
-    width: 65%;
+    // width: 65%;
+    width: 1100px;
+    @media screen and (max-width: $break-tablet) {
+      width: 100%;
+      padding: 10px;
+      margin-top: 0;
+    }
   }
 
   .column_aside {
@@ -47,6 +87,10 @@
     // border: 1px solid greenyellow;
     width: 34%;
     padding: 20px;
+    @media screen and (max-width: $break-tablet) {
+      width: 100%;
+      padding: 10px;
+    }
   }
 
   .restaurant_header {
@@ -162,7 +206,7 @@
     display: inline-block;
   }
 
-  .res_into_table {
+  .res_Info_table {
     padding: 20px 0px;
   }
 
@@ -197,10 +241,14 @@
 
   .Res_Menulist {
     margin-right: 30px;
+    display: inline-block;
+    width: 100px;
+    word-break: keep-all;
   }
 
   .Res_MenuPrice {
     margin-left: auto;
+    display: inline-block;
   }
 
   td a {
@@ -284,20 +332,31 @@
   .restaurant_Reviews {
     margin: 0 auto;
     width: 800px;
+    @media screen and (max-width: $break-tablet) {
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
   }
   .user_Review_Wrap {
     display: block;
+    padding-top: 20px;
+    @media screen and (max-width: $break-tablet) {
+      width: 100%;
+    }
   }
 
   .user_Text {
     width: 100%;
     height: 108px;
+    resize: none;
   }
 
   .user_Review_BtnBox {
     display: flex;
     justify-content: flex-end;
     padding: 5px;
+    margin-top: 10px;
   }
 
   .user_Review_Btn {
@@ -314,7 +373,11 @@
   }
   .restaurantRvHeader {
     margin-bottom: 14px;
+    margin-top: 14px;
     display: flex;
+    @media screen and (max-width: $break-tablet) {
+      width: 100%;
+    }
   }
 
   .restaurant_RvList_filterList {
@@ -349,11 +412,6 @@
     margin: 0;
   }
 
-  .restaurantRvList {
-    // border: 1px solid black;
-    padding: 10px;
-  }
-
   .icon_SmallPen {
     width: 9px;
     height: 8px;
@@ -370,6 +428,8 @@
   .review_Item {
     position: relative;
     border-bottom: 1px solid #dbdbdb;
+    padding-top: 10px;
+    padding-left: 5px;
   }
 
   .review_Item_ReviewDate {
@@ -394,16 +454,18 @@
   .review_Item_UserInfoWrap {
     display: flex;
     flex-direction: column;
-    margin: 15px 35px 0 8px;
+    padding: 10px 0px;
+    width: 170px;
+    margin-left: -20px;
   }
 
   .review_Item_UserPicWrap {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 5px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
     background-color: #dbdbdb;
+    margin: 0 auto;
   }
 
   .review_Item_UserPic {
@@ -419,12 +481,13 @@
   }
 
   .review_Item_UserNickName {
-    margin-bottom: 2px;
     font-size: 13px;
     line-height: 1.3;
     text-align: center;
     word-break: break-all;
     color: #555555;
+    margin: 0 auto;
+    padding-top: 5px;
   }
 
   .review_Item_Content {
@@ -446,6 +509,7 @@
 
   .near_Res_Item_Picwrapper img {
     width: 100%;
+    height: 100%;
   }
 
   .near_Res_Item_Content {
@@ -517,6 +581,10 @@
   .restaurant_detail {
     width: 800px;
     margin: 0 auto;
+    @media screen and (max-width: $break-tablet) {
+      margin-top: 20px;
+      width: 100%;
+    }
   }
 
   .near_Res {
@@ -572,22 +640,6 @@
     padding: 5px;
     background-color: #fff;
     color: #6a6a6a;
-  }
-
-  .other_Res {
-    border: 1px solid red;
-  }
-
-  .photoItem {
-    width: 320px;
-    height: 340px;
-    float: left;
-    border-right: 6px solid #fff;
-    background-size: cover;
-    display: block;
-    position: relative;
-    background-position: 50% 50%;
-    min-width: 300px;
   }
 
   .res_button_wrap {
