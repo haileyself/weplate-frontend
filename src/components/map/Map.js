@@ -9,9 +9,9 @@ class Map extends PureComponent {
   componentDidMount = async () => {
     const mapContainer = this.ref.current;
 
-    const latlng = await fetch('http://54.180.158.61:8000/map/1');
+    const latlng = await fetch(`http://54.180.158.61:8000/restaurant/${this.props.info}`);
     const latlng2 = await latlng.json();
-    // console.log(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude);
+    console.log(latlng2);
 
     const mapOption = {
       center: new window.kakao.maps.LatLng(latlng2.restaurant_info.latitude, latlng2.restaurant_info.longitude),
@@ -40,9 +40,10 @@ class Map extends PureComponent {
   }
 
   render() {
+    // console.log(this.props);
     return (
       <>
-        <div className="map_container" style={{ width: '400px' }}>
+        <div className="map_container" style={{ width: '100%' }}>
           <div ref={this.ref} style={{ width: '100%', height: '350px' }} />
         </div>
       </>

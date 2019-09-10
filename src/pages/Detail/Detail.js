@@ -43,7 +43,7 @@ class Detail extends React.Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log('reponse다', response);
+        // console.log('reponse다', response);
         this.setState({
           comments: response.reverse(),
         });
@@ -57,7 +57,7 @@ class Detail extends React.Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log('상세정보야 와라', response);
+        // console.log('상세정보야 와라', response);
         this.setState({
           resInfo: response,
         });
@@ -69,7 +69,7 @@ class Detail extends React.Component {
         })
           .then((response) => response.json())
           .then((response) => {
-            console.log('id값확인', response);
+            // console.log('id값확인', response);
             this.setState({
               nearList: response,
             });
@@ -124,7 +124,7 @@ class Detail extends React.Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log('reponse다', response);
+        // console.log('reponse다', response);
         if (response.message === 'SUCCESS') {
           fetch('http://54.180.158.61:8000/comment', {
             method: 'GET',
@@ -134,7 +134,7 @@ class Detail extends React.Component {
           })
             .then((response) => response.json())
             .then((response) => {
-              console.log('reponse다', response);
+              // console.log('reponse다', response);
               this.setState({
                 comments: response.reverse(),
                 text: '',
@@ -151,22 +151,21 @@ class Detail extends React.Component {
     render() {
       // console.log('스테이트값 확인', this.state.resInfo);
       // console.log('키값확인', this.state.resInfo.restaurant_info);
-      // console.log('프롭스값', this.props);
-      console.log('!!!', this.state.nearList);
+      console.log('프롭스값', this.state);
+      // console.log('!!!', this.state.nearList);
       return (
         <div className="detail_page">
           <div className="headerWrapper">
             <SubHeader />
           </div>
           <div className="detail_Photolist">
-            {this.state.resInfo.restaurant_info.menu.map((e) => {
-              console.log('야야양', e);
-              return (
+            {this.state.resInfo.restaurant_info.menu.map((e) =>
+              // console.log('야야양', e);
+              (
                 <div className="photoList">
-                  <div className="photoItem photoItem1" style={{ backgroundImage: 'url(' + e.image + ')' }} />                
+                  <div className="photoItem photoItem1" style={{ backgroundImage: `url(${e.image})` }} />
                 </div>
-              );
-            })}
+              ))}
             {/* <div className="photoList">
               <div className="photoItem photoItem1">
               </div>
@@ -259,9 +258,9 @@ class Detail extends React.Component {
                           <th>메뉴</th>
                           <td className="menu_td">
                             <ul className="menuList">
-                              {this.state.resInfo.restaurant_info.menu.map((e) => {
-                                console.log('e야 어딨니', e);
-                                return (
+                              {this.state.resInfo.restaurant_info.menu.map((e) =>
+                                // console.log('e야 어딨니', e);
+                                (
                                   <div>
                                     <li className="menuItem">
                                       <div className="Res_Menulist">{e.menu_name}</div>
@@ -284,8 +283,7 @@ class Detail extends React.Component {
                                       <span className="Res_MenuPrice">35,000원</span>
                                     </li> */}
                                   </div>
-                                );
-                              })}
+                                ))}
                             </ul>
                           </td>
                         </tr>
@@ -346,14 +344,13 @@ class Detail extends React.Component {
                   <ul className="restaurantRvList">
                     {
 
-                    this.state.comments.map((el) => {
-                      // <div>
-                      //    <h3>{el.name}</h3>
-                      //    <p>{el.message}</p>
-                      //  </div>;
-                      console.log('detail 컴포넌트...', el);
-                      return <ReviewContent comment={el} />;
-                    })
+                    this.state.comments.map((el) =>
+                    // <div>
+                    //    <h3>{el.name}</h3>
+                    //    <p>{el.message}</p>
+                    //  </div>;
+                    // console.log('detail 컴포넌트...', el);
+                      <ReviewContent comment={el} />)
                   }
                     {/* <ReviewContent />
                     <ReviewContent />
@@ -407,6 +404,9 @@ class Detail extends React.Component {
                       {/* 주변식당리스트 each 시작 */}
                     </div>
                   </section>
+                  <section>
+                    <Map info={this.props.match.params.id} />
+                  </section>
                   {/* <section className="tagWithRestaurant">
                     <span className="tag_Title">이 식당 관련 태그</span>
                     <p className="tag_List">
@@ -421,7 +421,6 @@ class Detail extends React.Component {
               </div>
             </div>
             {/* detailwrapper 위에서 끝 */}
-            <Map />
           </div>
         </div>
       );
