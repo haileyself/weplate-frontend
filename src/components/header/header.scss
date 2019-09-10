@@ -334,10 +334,11 @@
   justify-content: center;
 }
 
-.header_menulist span {
-  color: #888888;
-}
-
 .header_menulist span:hover {
   color: #ff7100;
+}
+
+.header_menulist,
+.header_menuitem .de {
+  color: #888888;
 }

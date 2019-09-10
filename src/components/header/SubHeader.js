@@ -11,6 +11,10 @@ class subHeader extends PureComponent {
 
   token = localStorage.getItem('weple-token');
 
+  onClickLogout = () => {
+    localStorage.clear();
+  }
+
   render() {
     const {
       onClickHandlerMenuIcon, onClickEvent, onChangeEvent, mode,
@@ -46,31 +50,31 @@ class subHeader extends PureComponent {
           </fieldset>
         </form>
         <ul className="header_menulist">
-          <li className="header_menuitem underline-from-left">
+          <li className="header_menuitem de underline-from-left">
             <Link to="/">
               <span>EAT딜</span>
             </Link>
           </li>
-          <li className="header_menuitem underline-from-left">
+          <li className="header_menuitem de underline-from-left">
             <Link to="/">
               <span>맛집 리스트</span>
             </Link>
           </li>
-          <li className="header_menuitem underline-from-left">
+          <li className="header_menuitem de underline-from-left">
             <Link to="/">
               <span>망고스토리</span>
             </Link>
           </li>
           <div className="header_menuitem_wrap ">
             {this.token ? (
-              <li className="header_menuitem underline-from-left">
-                <Link to="./login">
+              <li className="header_menuitem de underline-from-left" onClic={this.onClickLogout}>
+                <Link>
                   <span>로그아웃</span>
                 </Link>
               </li>
             )
               : (
-                <li className="header_menuitem underline-from-left">
+                <li className="header_menuitem de underline-from-left">
                   <Link to="./login">
                     <span>로그인</span>
                   </Link>
