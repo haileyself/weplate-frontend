@@ -15,7 +15,7 @@ import NearRes1 from './nearRes1.jpg';
 import NearRes2 from './nearRes1.jpg';
 import NearRes3 from './nearRes1.jpg';
 import NearRes4 from './nearRes1.jpg';
-
+import Map from '../../components/map/Map';
 
 class Detail extends React.Component {
   constructor() {
@@ -421,6 +421,7 @@ class Detail extends React.Component {
               </div>
             </div>
             {/* detailwrapper 위에서 끝 */}
+            <Map />
           </div>
         </div>
       );
