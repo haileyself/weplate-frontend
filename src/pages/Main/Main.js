@@ -27,7 +27,7 @@ class Main extends PureComponent {
   }
 
   getRestaurantList = async () => {
-    const restaurantList = await fetch('http://10.58.4.74:8000/main_list');
+    const restaurantList = await fetch('http://54.180.158.61:8000/main_list');
     const listItem = await restaurantList.json();
     // console.log(listItem);
     const item = listItem.main_restaurant;
@@ -53,16 +53,18 @@ class Main extends PureComponent {
   }
 
 
-  // onChangeHandler = (e) => {
-  //   this.setState({
-  //     textValue: e.target.value,
-  //   });
-  // }
+  onChangeHandler = (e) => {
+    this.setState({
+      textValue: e.target.value,
+    });
+  }
 
-  // onClickSearchButton = () => (
-  //   this.loadImg
-  //   // this.props.history.push('/detail')
-  // )
+  onClickSearchButton = async () => {
+    const result = await fetch(`http://54.180.158.61:8000/search?data=${this.state.textValue}`);
+    const result2 = await result.json();
+    this.props.history.push(`/detail/${result2.restaurant_info.id}`);
+    return result;
+  }
 
   // onClickMainImage = () => {
   //   // console.log(history);
@@ -71,12 +73,14 @@ class Main extends PureComponent {
   //   // history.push('/detail');
   // }
 
-  // onKeyPressHandler = (e) => {
-  //   if (e.key === 'Enter') {
-  //     return this.loadImg;
-  //     // this.props.history.push('/detail');
-  //   }
-  // }
+  onKeyPressHandler = async (e) => {
+    if (e.key === 'Enter') {
+      const result = await fetch(`http://54.180.158.61:8000/search?data=${this.state.textValue}`);
+      const result2 = await result.json();
+      this.props.history.push(`/detail/${result2.restaurant_info.id}`);
+      return result;
+    }
+  }
 
   onClickHandlerMenuIcon = () => (
     this.setState((prev) => (
@@ -96,8 +100,8 @@ class Main extends PureComponent {
   // };
 
   render() {
-    // console.log(this.state.textValue);
-    console.log(this.state.restaurantList);
+    console.log(this.state.textValue);
+    // console.log(this.state.restaurantList);
     const { mode, restaurantList } = this.state;
     return (
       <div className="main-page">

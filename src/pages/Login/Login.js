@@ -2,15 +2,15 @@ import React from 'react';
 import './Login.scss';
 import { Link, withRouter } from 'react-router-dom';
 // import kakao from 'react-kakao-login';
-import Logo from './logo.png';
+import Logo from '../../imges/logo-orange.png';
 
 window.Kakao.init('f8649f9322f32e7bc59c64a23e9ae213');
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      user_email: '',
+      user_password: '',
       Kakao: {},
     };
   }
@@ -24,7 +24,7 @@ class Login extends React.Component {
         // console.log(authObj);
       },
       fail(err) {
-        alert(JSON.stringify(err));
+        // alert(JSON.stringify(err));
       },
     });
     this.setState({
@@ -35,7 +35,8 @@ class Login extends React.Component {
   onClickHandleKakaoLogin = () => {
     this.state.Kakao.Auth.login({
       success: (kakaotoken) => {
-        fetch('http://10.58.7.15:8000/users/kakaologin', {
+        console.log(kakaotoken);
+        fetch('http://54.180.158.61:8000/kakaologin', {
           headers: {
             Authorization: kakaotoken.access_token,
           },
@@ -61,7 +62,7 @@ class Login extends React.Component {
       return;
     }
 
-    fetch('http://10.58.7.15:8000/users/login', {
+    fetch('http://54.180.158.61:8000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -125,7 +126,7 @@ class Login extends React.Component {
                     <label>Remember me</label>
                   </div>
                   <input type="button" className="login_btn" value="Login" onClick={this.clickLoginBtn} />
-                 
+
 
                   <div id="kakao_login_btn" onClick={this.onClickHandleKakaoLogin} />
 
