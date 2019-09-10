@@ -17,10 +17,12 @@ class subHeader extends PureComponent {
     } = this.props;
     return (
       <header className="header">
-        <a className="header_logo" href="/">
+        <a className="tempLogoWrap" href="/">
           <img className="tempLogo" src={Logo} alt="logo" />
         </a>
-        <i className="search_icon" alt="전체 검색창 아이콘" />
+        <div>
+          <i className="fas fa-search small_search_Icon" />
+        </div>
         <form className="form_wrap">
           <fieldset className="fieldset_wrap">
             <legend className="form_fieldset">전체 검색</legend>

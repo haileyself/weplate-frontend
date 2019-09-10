@@ -9,14 +9,15 @@ const ReviewContent = (props) => (
       target="_blank"
     >
       <div className="review_Item_User">
-        <div className="review_Item_UserInfoWrap">
+        <span className="review_Item_UserInfoWrap">
           <div className="review_Item_UserPicWrap">
             <img className="review_Item_UserPic" src={Profile} alt="user profile" />
           </div>
           <span className="review_Item_UserNickName">
-            {props.comment.user__user_id}
+            {props.comment.user__user_email}
+            {/* //span 크기 수정하기 */}
           </span>
-        </div>
+        </span>
         <div className="review_Item_Content">
           <div className="review_Item_TextWrap">
             <span className="review_Item_ReviewDate">
