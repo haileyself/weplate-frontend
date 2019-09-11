@@ -62,8 +62,12 @@ class Main extends PureComponent {
   onClickSearchButton = async () => {
     const result = await fetch(`http://54.180.158.61:8000/search?data=${this.state.textValue}`);
     const result2 = await result.json();
-    this.props.history.push(`/detail/${result2.restaurant_info.id}`);
-    return result;
+    if (this.state.textValue) {
+      this.props.history.push(`/detail/${result2.restaurant_info.id}`);
+    } else if (this.state.textValue.length === 0) {
+      alert('식당 이름을 정확히 입력해주세요');
+    }
+    // return result;
   }
 
   // onClickMainImage = () => {
@@ -77,8 +81,12 @@ class Main extends PureComponent {
     if (e.key === 'Enter') {
       const result = await fetch(`http://54.180.158.61:8000/search?data=${this.state.textValue}`);
       const result2 = await result.json();
-      this.props.history.push(`/detail/${result2.restaurant_info.id}`);
-      return result;
+      if (this.state.textValue) {
+        this.props.history.push(`/detail/${result2.restaurant_info.id}`);
+      } else if (this.state.textValue.length === 0) {
+        alert('식당 이름을 정확히 입력해주세요');
+      }
+      // return result;
     }
   }
 

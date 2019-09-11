@@ -151,7 +151,7 @@ class Detail extends React.Component {
     render() {
       // console.log('스테이트값 확인', this.state.resInfo);
       // console.log('키값확인', this.state.resInfo.restaurant_info);
-      console.log('프롭스값', this.state);
+      // console.log('프롭스값', this.state);
       // console.log('!!!', this.state.nearList);
       return (
         <div className="detail_page">

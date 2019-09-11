@@ -1,8 +1,9 @@
 import React from 'react';
 import './Login.scss';
 import { Link, withRouter } from 'react-router-dom';
-// import kakao from 'react-kakao-login';
+// import { kakao } from 'react-kakao-login';
 import Logo from '../../imges/logo-orange.png';
+
 
 window.Kakao.init('f8649f9322f32e7bc59c64a23e9ae213');
 class Login extends React.Component {
@@ -16,37 +17,42 @@ class Login extends React.Component {
   }
 
 
-  componentDidMount() {
+  componentDidMount = () => {
+    // console.log(window.Kakao);
     window.Kakao.Auth.createLoginButton({
       container: '#kakao_login_btn',
-      success(authObj) {
+      success: (authObj) => {
         alert(JSON.stringify(authObj));
         // console.log(authObj);
       },
-      fail(err) {
-        // alert(JSON.stringify(err));
+      fail: (err) => {
+        alert(JSON.stringify(err));
+        // console.log(err);
       },
-    });
-    this.setState({
-      Kakao: window.Kakao,
     });
   }
 
   onClickHandleKakaoLogin = () => {
-    this.state.Kakao.Auth.login({
+    // console.log(window.Kakao);
+    window.Kakao.Auth.login({
       success: (kakaotoken) => {
         console.log(kakaotoken);
         fetch('http://54.180.158.61:8000/kakaologin', {
           headers: {
             Authorization: kakaotoken.access_token,
           },
-        }).then((response) => response.json())
+        })
+          .then((response) => response.json())
           .then((response) => {
+            console.log(response);
             if (response.access_token) {
               localStorage.setItem('weple-token', response.access_token);
               this.props.history.push('/');
             }
           });
+      },
+      fail: (err) => {
+        console.log(err);
       },
     });
   }
@@ -93,6 +99,7 @@ class Login extends React.Component {
     };
 
     render() {
+      // console.log(kakao);
       return (
         <div className="login_page">
           <div className="login_container">
