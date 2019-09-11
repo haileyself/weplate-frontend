@@ -7,12 +7,27 @@ import './header.scss';
 class subHeader extends PureComponent {
   constructor(props) {
     super(props);
+    this.token = localStorage.getItem('weple-token');
+    this.state = {
+      isLogin: false,
+    };
   }
 
-  token = localStorage.getItem('weple-token');
+  componentDidMount = () => {
+    if (this.token) {
+      this.setState({
+        isLogin: !this.state.isLogin,
+      });
+    }
+    console.log(this.state.isLogin);
+  }
 
   onClickLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem('weple-token', null);
+    this.setState({
+      isLogin: !this.state.isLogin,
+    });
+    console.log(this.state.isLogin);
   }
 
   render() {
@@ -66,8 +81,8 @@ class subHeader extends PureComponent {
             </Link>
           </li>
           <div className="header_menuitem_wrap ">
-            {this.token ? (
-              <li className="header_menuitem de underline-from-left" onClic={this.onClickLogout}>
+            {this.state.isLogin ? (
+              <li className="header_menuitem de underline-from-left" onClick={this.onClickLogout}>
                 <Link>
                   <span>로그아웃</span>
                 </Link>
@@ -75,7 +90,7 @@ class subHeader extends PureComponent {
             )
               : (
                 <li className="header_menuitem de underline-from-left">
-                  <Link to="./login">
+                  <Link to="/login">
                     <span>로그인</span>
                   </Link>
                 </li>
