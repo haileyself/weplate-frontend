@@ -32,7 +32,7 @@ class NearResList extends React.Component {
               </div>
               <div className="near_Res_Item_Place near_Res_Item_InfoList">
                 <span className="near_Res_Item_Info_Label">위치:</span>
-                <span className="near_Res_Item_Info_Value">{this.props.adrs}</span>
+                <span className="near_Res_Item_Info_Value">{this.props.adrs.substring(0, 11)}</span>
                 {/* //자바스크립트 로직을 리액트 안에 사용할 수 있는지 확인하기 */}
               </div>
               <div className="near_Res_Item_Price near_Res_Item_InfoList">
