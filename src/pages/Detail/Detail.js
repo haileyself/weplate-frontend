@@ -266,22 +266,6 @@ class Detail extends React.Component {
                                       <div className="Res_Menulist">{e.menu_name}</div>
                                       <div className="Res_MenuPrice"> {Math.floor(e.price)}원</div>
                                     </li>
-                                    {/* <li className="menuItem">
-                                      <span className="Res_Menulist">냉면(육수/비빔)</span>
-                                      <span className="Res_MenuPrice">10,000원</span>
-                                    </li>
-                                    <li className="menuItem">
-                                      <span className="Res_Menulist">왕만두</span>
-                                      <span className="Res_MenuPrice">8,000원</span>
-                                    </li>
-                                    <li className="menuItem">
-                                      <span className="Res_Menulist">갈비찜</span>
-                                      <span className="Res_MenuPrice">48,000원</span>
-                                    </li>
-                                    <li className="menuItem">
-                                      <span className="Res_Menulist">수육무침</span>
-                                      <span className="Res_MenuPrice">35,000원</span>
-                                    </li> */}
                                   </div>
                                 ))}
                             </ul>
@@ -296,7 +280,7 @@ class Detail extends React.Component {
                   <header className="restaurantRvHeader">
                     <h2 className="RvHeader_title">
                       <span className="title_Review">리뷰</span>
-                      {/* <span className="title_Review_count">(100)</span> */}
+
                     </h2>
                     {/* <ul className="restaurant_RvList_filterList">
                       <li className="restaurant_RvList_filterItem">
