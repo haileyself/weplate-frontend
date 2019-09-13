@@ -28,6 +28,8 @@ class Detail extends React.Component {
         restaurant_info: {
           restaurantimage__image: '',
           menu: [],
+          opening: '',
+          closing: '',
         },
       },
     };
@@ -149,6 +151,7 @@ class Detail extends React.Component {
     }
 
     render() {
+      console.log('안녕', this.state.resInfo.restaurant_info.opening);
       // console.log('스테이트값 확인', this.state.resInfo);
       // console.log('키값확인', this.state.resInfo.restaurant_info);
       // console.log('프롭스값', this.state);
@@ -244,7 +247,7 @@ class Detail extends React.Component {
                         <tr>
                           <th className="res_openingHour">영업시간</th>
                           <td>
-                            {this.state.resInfo.restaurant_info.opening} - {this.state.resInfo.restaurant_info.closing}
+                            {this.state.resInfo.restaurant_info.opening.substring(0, 5)} - {this.state.resInfo.restaurant_info.closing.substring(0, 5)}
 
                           </td>
                         </tr>
