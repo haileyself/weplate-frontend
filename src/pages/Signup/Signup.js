@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Signup.scss';
-import {Link, withRouter } from 'react-router-dom';
-import Logo from './logo.png';
+import { Link, withRouter } from 'react-router-dom';
+import Logo from '../../imges/logo-orange.png';
 
 class Signup extends React.Component {
   constructor() {
@@ -48,7 +48,7 @@ class Signup extends React.Component {
       return;
     }
 
-    fetch('http://10.58.7.15:8000/users/signup', {
+    fetch('http://54.180.158.61:8000/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

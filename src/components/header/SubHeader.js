@@ -7,9 +7,28 @@ import './header.scss';
 class subHeader extends PureComponent {
   constructor(props) {
     super(props);
+    this.token = localStorage.getItem('weple-token');
+    this.state = {
+      isLogin: false,
+    };
   }
 
-  token = localStorage.getItem('weple-token');
+  componentDidMount = () => {
+    if (this.token) {
+      this.setState({
+        isLogin: !this.state.isLogin,
+      });
+    }
+    console.log(this.state.isLogin);
+  }
+
+  onClickLogout = () => {
+    localStorage.removeItem('weple-token', null);
+    this.setState({
+      isLogin: !this.state.isLogin,
+    });
+    console.log(this.state.isLogin);
+  }
 
   render() {
     const {
@@ -46,32 +65,32 @@ class subHeader extends PureComponent {
           </fieldset>
         </form>
         <ul className="header_menulist">
-          <li className="header_menuitem underline-from-left">
+          <li className="header_menuitem de underline-from-left">
             <Link to="/">
               <span>EAT딜</span>
             </Link>
           </li>
-          <li className="header_menuitem underline-from-left">
+          <li className="header_menuitem de underline-from-left">
             <Link to="/">
               <span>맛집 리스트</span>
             </Link>
           </li>
-          <li className="header_menuitem underline-from-left">
+          <li className="header_menuitem de underline-from-left">
             <Link to="/">
               <span>망고스토리</span>
             </Link>
           </li>
           <div className="header_menuitem_wrap ">
-            {this.token ? (
-              <li className="header_menuitem underline-from-left">
-                <Link to="./login">
+            {this.state.isLogin ? (
+              <li className="header_menuitem de underline-from-left" onClick={this.onClickLogout}>
+                <Link>
                   <span>로그아웃</span>
                 </Link>
               </li>
             )
               : (
-                <li className="header_menuitem underline-from-left">
-                  <Link to="./login">
+                <li className="header_menuitem de underline-from-left">
+                  <Link to="/login">
                     <span>로그인</span>
                   </Link>
                 </li>

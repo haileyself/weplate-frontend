@@ -7,8 +7,8 @@ class NearResList extends React.Component {
   }
 
   render() {
-    console.log('name.....', this.props);
-    console.log('이미지', this.props.imgSrc);
+    // console.log('name.....', this.props);
+    // console.log('이미지', this.props.imgSrc);
     return (
       <div className="near_Res_Item">
         <div className="near_Res_Item_PicAndContent">
