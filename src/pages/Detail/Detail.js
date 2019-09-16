@@ -33,6 +33,7 @@ class Detail extends React.Component {
         },
       },
     };
+    this.getKey = localStorage.getItem('weple-token');
   } // 코멘트라는 값에 대한 state를 설정
 
 
@@ -118,7 +119,7 @@ class Detail extends React.Component {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoid2Vjb2RlQGdtYWlsLmNvbSIsImV4cCI6MTU2ODM3Njc2NSwiaWF0IjoxNTY3OTQ0NzY1fQ.eHqN2I3EJIh56zxtwW0WeYbIUUmCAqp-Jz-IQOX-FvY',
+        Authorization: this.getKey,
       },
       body: JSON.stringify({
         content: this.state.text,
@@ -156,6 +157,7 @@ class Detail extends React.Component {
       // console.log('키값확인', this.state.resInfo.restaurant_info);
       // console.log('프롭스값', this.state);
       // console.log('!!!', this.state.nearList);
+      console.log(this.getKey);
       return (
         <div className="detail_page">
           <div className="headerWrapper">
