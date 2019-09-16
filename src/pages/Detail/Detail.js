@@ -150,11 +150,11 @@ class Detail extends React.Component {
     }
 
     render() {
-      // console.log('스테이트값 확인', this.state.resInfo);
+      console.log('스테이트값 확인', this.state.resInfo);
       // console.log('키값확인', this.state.resInfo.restaurant_info);
       // console.log('프롭스값', this.state);
       // console.log('!!!', this.state.nearList);
-      console.log(this.getKey);
+      // console.log(this.getKey);
       return (
         <div className="detail_page">
           <div className="headerWrapper">
@@ -236,7 +236,7 @@ class Detail extends React.Component {
                         <tr>
                           <th>음식 종류</th>
                           <td>
-                            <span>데이터준비전</span>
+                            <span>{this.state.resInfo.restaurant_info.food_type__name}</span>
                           </td>
                         </tr>
                         <tr>
