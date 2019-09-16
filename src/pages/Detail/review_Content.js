@@ -21,7 +21,7 @@ const ReviewContent = (props) => (
         <div className="review_Item_Content">
           <div className="review_Item_TextWrap">
             <span className="review_Item_ReviewDate">
-              {props.comment.created_at}
+              {props.comment.created_at.substring(0, 10)}
             </span>
             <p className="review_Item_ReviewText">
               {props.comment.content}
