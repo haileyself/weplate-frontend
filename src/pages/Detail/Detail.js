@@ -79,22 +79,6 @@ class Detail extends React.Component {
           });
       });
 
-    // 주변식당정보가 안옴...
-    // console.log('다음', this.state.resInfo);
-    // fetch(`http://54.180.158.61:8000/near/${this.state.resInfo.restaurant_info.id}`, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((response) => {
-    //     console.log('id값확인', response);
-    //     // console.log(this.state.resInfo.restaurant_info.id);
-    //     this.setState({
-    //       nearList: response,
-    //     });
-    //   });
   }
 
    loginHandler = () => {
